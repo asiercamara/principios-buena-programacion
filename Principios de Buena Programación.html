@@ -151,7 +151,69 @@
             background-color: #2d2d2d;
             color: #f8f8f2;
         }
-        </style>
+        
+    /* Responsive adjustments for both desktop and mobile screens */
+    @media (max-width: 1200px) {
+        .contenido-principal {
+            padding: 20px;
+            margin: 0 auto;
+            max-width: 90%;
+        }
+    }
+
+    @media (max-width: 992px) {
+        .contenido-principal {
+            padding: 15px;
+            margin: 0 auto;
+            max-width: 85%;
+        }
+        .menu-lateral {
+            width: 220px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .menu-lateral {
+            width: 200px;
+            padding: 10px;
+        }
+        .contenido-principal {
+            padding: 10px;
+            max-width: 100%;
+            margin-left: 0;
+        }
+        header h1 {
+            font-size: 1.4rem;
+        }
+        .menu-lateral ul li a {
+            font-size: 1rem;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .menu-lateral {
+            width: 180px;
+            padding: 8px;
+        }
+        .contenido-principal {
+            padding: 10px;
+            margin-left: 0;
+        }
+        header h1 {
+            font-size: 1.2rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        header h1 {
+            font-size: 1rem;
+        }
+        .menu-lateral ul li a {
+            font-size: 0.9rem;
+        }
+    }
+    </style>
+
 <style>
         body.light-theme {
             background-color: #ffffff;
@@ -173,7 +235,69 @@
             width: 40px;
             height: 20px;
         }
+    
+    /* Responsive adjustments for both desktop and mobile screens */
+    @media (max-width: 1200px) {
+        .contenido-principal {
+            padding: 20px;
+            margin: 0 auto;
+            max-width: 90%;
+        }
+    }
+
+    @media (max-width: 992px) {
+        .contenido-principal {
+            padding: 15px;
+            margin: 0 auto;
+            max-width: 85%;
+        }
+        .menu-lateral {
+            width: 220px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .menu-lateral {
+            width: 200px;
+            padding: 10px;
+        }
+        .contenido-principal {
+            padding: 10px;
+            max-width: 100%;
+            margin-left: 0;
+        }
+        header h1 {
+            font-size: 1.4rem;
+        }
+        .menu-lateral ul li a {
+            font-size: 1rem;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .menu-lateral {
+            width: 180px;
+            padding: 8px;
+        }
+        .contenido-principal {
+            padding: 10px;
+            margin-left: 0;
+        }
+        header h1 {
+            font-size: 1.2rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        header h1 {
+            font-size: 1rem;
+        }
+        .menu-lateral ul li a {
+            font-size: 0.9rem;
+        }
+    }
     </style>
+
 	</head>
 <body>
 <div class="menu-lateral oculto" id="menu-lateral">
