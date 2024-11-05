@@ -1,0 +1,2662 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link id="highlight-theme-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/atom-one-light.min.css" disabled>
+<link id="highlight-theme-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/atom-one-dark.min.css" disabled>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<title>Curso sobre Principios de Buena Programación</title>
+<style>
+         body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        
+        .menu-lateral {
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 250px;
+            background: #333;
+            color: white;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+        
+        .menu-lateral.visible {
+            transform: translateX(0);
+        }
+        
+        .menu-lateral ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .menu-lateral ul li {
+            margin: 15px 0;
+            padding-left: 10px;
+        }
+        
+        .menu-lateral ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+        
+        .menu-lateral ul li a:hover {
+            text-decoration: underline;
+        }
+        
+        .menu-lateral ul li ul {
+            margin-left: 15px;
+            list-style: none;
+        }
+        
+        .contenido-principal {
+            margin-left: 50px;
+            padding: 80px 20px 20px;
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #333;
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+        
+        header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            flex: 1;
+        }
+        
+        .btn-abrir, .btn-cerrar {
+            background: #333;
+            color: white;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+			padding-right: 1.5em;
+        }
+        
+        .btn-cerrar {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        
+        p {
+            margin-bottom: 1.5em;
+        }
+		
+
+        @media (max-width: 768px) {
+            .menu-lateral {
+                width: 200px;
+                padding: 10px;
+            }
+            .contenido-principal {
+                padding: 100px 15px 15px;
+                margin-left: 0;
+            }
+            header {
+                padding: 10px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.2rem;
+            }
+            .menu-lateral ul li a {
+                font-size: 0.9rem;
+            }
+        }
+    
+        .dark-theme .contenido-principal {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+        }
+
+        .dark-theme .contenido-principal a {
+            color: #90caf9; /* Un azul claro para los enlaces en modo oscuro */
+        }
+
+        .dark-theme .contenido-principal pre {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+        }
+        </style>
+<style>
+        body.light-theme {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        body.dark-theme {
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        .theme-toggle-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        #theme-toggle {
+            width: 40px;
+            height: 20px;
+        }
+    </style>
+	</head>
+<body>
+<div class="menu-lateral oculto" id="menu-lateral">
+<button class="btn-cerrar" id="cerrar-menu">×</button>
+<nav>
+<ul id="menu-lista">
+<!-- Enlaces generados dinámicamente a partir del contenido -->
+</ul>
+</nav>
+</div>
+<div class="contenido-principal" id="contenido-principal">
+<header>
+<button class="btn-abrir" id="abrir-menu">☰</button>
+<h1 id="curso-sobre-principios-de-buena-programación">Curso sobre Principios de Buena Programación</h1>
+<div class="theme-toggle-container"><label for="theme-toggle">Modo Oscuro</label><input id="theme-toggle" type="checkbox"/></div></header>
+<section>
+<!-- Contenido original -->
+<h2 id="tabla-de-contenidos">Tabla de contenidos</h2>
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE 
+			<!--
+			**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+			-->
+<ul>
+<li><a href="#curso-sobre-principios-de-buena-programaci%C3%B3n">Curso
+			sobre Principios de Buena Programación</a>
+<ul>
+<li><a href="#tabla-de-contenidos">Tabla de contenidos</a></li>
+<li><a href="#introducci%C3%B3n">Introducción</a></li>
+<li><a href="#1-principios-solid-bases-para-la-programaci%C3%B3n-orientada-a-objetos">1.
+			Principios SOLID: Bases para la Programación Orientada a Objetos</a>
+<ul>
+<li><a href="#11-single-responsibility-principle-srp">1.1. Single
+			Responsibility Principle (SRP)</a>
+<ul>
+<li><a href="#introducci%C3%B3n-a-srp">Introducción a SRP</a></li>
+<li><a href="#explicaci%C3%B3n-detallada">Explicación Detallada</a></li>
+<li><a href="#ejemplo-1-divisi%C3%B3n-de-una-clase-con-m%C3%BAltiples-responsabilidades">Ejemplo
+			1: División de una Clase con Múltiples Responsabilidades</a></li>
+<li><a href="#ejemplo-2-aplicaci%C3%B3n-en-una-api-rest">Ejemplo 2:
+			Aplicación en una API REST</a></li>
+<li><a href="#casos-pr%C3%A1cticos">Casos Prácticos</a></li>
+<li><a href="#conclusi%C3%B3n">Conclusión</a></li>
+</ul></li>
+<li><a href="#12-openclosed-principle-ocp">1.2. Open/Closed Principle
+			(OCP)</a>
+<ul>
+<li><a href="#introducci%C3%B3n-ocp">Introducción OCP</a></li>
+<li><a href="#explicaci%C3%B3n-detallada-1">Explicación
+			Detallada</a></li>
+<li><a href="#ejemplo-1-clase-de-procesador-de-pagos">Ejemplo 1: Clase
+			de Procesador de Pagos</a></li>
+<li><a href="#ejemplo-2-aplicaci%C3%B3n-de-enrutamiento-en-una-api-rest">Ejemplo
+			2: Aplicación de Enrutamiento en una API REST</a></li>
+<li><a href="#casos-pr%C3%A1cticos-1">Casos Prácticos</a></li>
+<li><a href="#conclusi%C3%B3n-1">Conclusión</a></li>
+</ul></li>
+<li><a href="#13-liskov-substitution-principle-lsp">1.3. Liskov
+			Substitution Principle (LSP)</a>
+<ul>
+<li><a href="#introducci%C3%B3n-1">Introducción</a></li>
+<li><a href="#explicaci%C3%B3n-detallada-2">Explicación
+			Detallada</a></li>
+<li><a href="#ejemplo-1-veh%C3%ADculos-y-coches-el%C3%A9ctricos">Ejemplo
+			1: Vehículos y Coches Eléctricos</a></li>
+<li><a href="#ejemplo-2-rect%C3%A1ngulo-y-cuadrado">Ejemplo 2:
+			Rectángulo y Cuadrado</a></li>
+<li><a href="#casos-pr%C3%A1cticos-2">Casos Prácticos</a></li>
+<li><a href="#conclusi%C3%B3n-2">Conclusión</a></li>
+</ul></li>
+<li><a href="#14-interface-segregation-principle-isp">1.4. Interface
+			Segregation Principle (ISP)</a>
+<ul>
+<li><a href="#introducci%C3%B3n-2">Introducción</a></li>
+<li><a href="#explicaci%C3%B3n-detallada-3">Explicación
+			Detallada</a></li>
+<li><a href="#ejemplo-1-trabajo-con-m%C3%BAltiples-tipos-de-impresoras">Ejemplo
+			1: Trabajo con Múltiples Tipos de Impresoras</a></li>
+<li><a href="#ejemplo-2-aplicaci%C3%B3n-de-control-de-veh%C3%ADculos">Ejemplo
+			2: Aplicación de Control de Vehículos</a></li>
+<li><a href="#casos-pr%C3%A1cticos-3">Casos Prácticos</a></li>
+<li><a href="#conclusi%C3%B3n-3">Conclusión</a></li>
+</ul></li>
+<li><a href="#15-dependency-inversion-principle-dip">1.5. Dependency
+			Inversion Principle (DIP)</a>
+<ul>
+<li><a href="#introducci%C3%B3n-3">Introducción</a></li>
+<li><a href="#explicaci%C3%B3n-detallada-4">Explicación
+			Detallada</a></li>
+<li><a href="#ejemplo-1-sistema-de-notificaciones">Ejemplo 1: Sistema de
+			Notificaciones</a></li>
+<li><a href="#ejemplo-2-control-de-almacenamiento">Ejemplo 2: Control de
+			Almacenamiento</a></li>
+<li><a href="#casos-pr%C3%A1cticos-4">Casos Prácticos</a></li>
+<li><a href="#conclusi%C3%B3n-4">Conclusión</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#2-principios-de-simplicidad-y-mantenimiento">2. Principios
+			de Simplicidad y Mantenimiento</a>
+<ul>
+<li><a href="#21-mant%C3%A9n-el-c%C3%B3digo-simple-kiss---keep-it-simple-stupid"><strong>2.1.
+			Mantén el Código Simple (KISS - Keep It Simple, Stupid)</strong></a>
+<ul>
+<li><a href="#explicaci%C3%B3n-extensa">Explicación Extensa</a></li>
+<li><a href="#ejemplo-detallado">Ejemplo Detallado</a></li>
+<li><a href="#consejos-pr%C3%A1cticos-para-aplicar-kiss">Consejos
+			Prácticos para Aplicar KISS</a></li>
+<li><a href="#errores-comunes-que-violentan-kiss">Errores Comunes que
+			Violentan KISS</a></li>
+</ul></li>
+<li><a href="#22-no-repitas-c%C3%B3digo-dry---dont-repeat-yourself">2.2.
+			No Repitas Código (DRY - Don't Repeat Yourself)</a>
+<ul>
+<li><a href="#explicaci%C3%B3n">Explicación</a></li>
+<li><a href="#ejemplo-detallado-1">Ejemplo Detallado</a></li>
+<li><a href="#consejos-pr%C3%A1cticos-para-aplicar-dry">Consejos
+			Prácticos para Aplicar DRY</a></li>
+<li><a href="#errores-comunes-que-violentan-dry">Errores Comunes que
+			Violentan DRY</a></li>
+<li><a href="#beneficios-de-aplicar-dry">Beneficios de Aplicar
+			DRY</a></li>
+</ul></li>
+<li><a href="#23-yagni-you-arent-gonna-need-it">2.3. YAGNI (You Aren't
+			Gonna Need It)</a>
+<ul>
+<li><a href="#introducci%C3%B3n-4">Introducción</a></li>
+<li><a href="#explicaci%C3%B3n-detallada-5">Explicación
+			Detallada</a></li>
+<li><a href="#ejemplo">Ejemplo</a></li>
+<li><a href="#conclusi%C3%B3n-5">Conclusión</a></li>
+</ul></li>
+<li><a href="#24-simplicidad-vs-complejidad-accidental">2.4. Simplicidad
+			vs Complejidad Accidental</a>
+<ul>
+<li><a href="#introducci%C3%B3n-5">Introducción</a></li>
+<li><a href="#explicaci%C3%B3n-detallada-6">Explicación
+			Detallada</a></li>
+<li><a href="#ejemplo-1">Ejemplo</a></li>
+<li><a href="#conclusi%C3%B3n-6">Conclusión</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#3-principios-de-modularidad-y-abstracci%C3%B3n">3.
+			Principios de Modularidad y Abstracción</a>
+<ul>
+<li><a href="#31-separaci%C3%B3n-de-conceptos-separation-of-concerns">3.1.
+			Separación de Conceptos (Separation of Concerns)</a>
+<ul>
+<li><a href="#introducci%C3%B3n-6">Introducción</a></li>
+<li><a href="#explicaci%C3%B3n-detallada-7">Explicación
+			Detallada</a></li>
+<li><a href="#ejemplo-2">Ejemplo</a></li>
+<li><a href="#conclusi%C3%B3n-7">Conclusión</a></li>
+</ul></li>
+<li><a href="#32-acoplamiento">3.2. Acoplamiento</a>
+<ul>
+<li><a href="#explicaci%C3%B3n-detallada-8">Explicación
+			Detallada</a></li>
+<li><a href="#ejemplo-3">Ejemplo</a></li>
+<li><a href="#tipos-de-acoplamiento">Tipos de Acoplamiento</a></li>
+</ul></li>
+<li><a href="#33-cohesi%C3%B3n">3.3. Cohesión</a>
+<ul>
+<li><a href="#explicaci%C3%B3n-detallada-9">Explicación
+			Detallada</a></li>
+<li><a href="#ejemplo-4">Ejemplo</a></li>
+<li><a href="#tipos-de-cohesi%C3%B3n">Tipos de Cohesión</a></li>
+<li><a href="#conclusi%C3%B3n-8">Conclusión</a></li>
+</ul></li>
+<li><a href="#34-relaci%C3%B3n-entre-cohesi%C3%B3n-y-acoplamiento">3.4.
+			Relación entre Cohesión y Acoplamiento</a>
+<ul>
+<li><a href="#explicaci%C3%B3n-detallada-10">Explicación
+			Detallada</a></li>
+<li><a href="#ejemplo-5">Ejemplo</a></li>
+<li><a href="#conclusi%C3%B3n-9">Conclusión</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#4-principios-para-la-robustez-y-la-flexibilidad-del-c%C3%B3digo">4.
+			Principios para la Robustez y la Flexibilidad del Código</a>
+<ul>
+<li><a href="#41-principio-de-demeter-law-of-demeter">4.1. Principio de
+			Demeter (Law of Demeter)</a>
+<ul>
+<li><a href="#explicaci%C3%B3n-detallada-11">Explicación
+			Detallada</a></li>
+<li><a href="#ejemplo-6">Ejemplo</a></li>
+<li><a href="#conclusi%C3%B3n-10">Conclusión</a></li>
+</ul></li>
+<li><a href="#42-fail-fast-fallar-r%C3%A1pido">4.2. Fail Fast (Fallar
+			Rápido)</a>
+<ul>
+<li><a href="#explicaci%C3%B3n-detallada-12">Explicación
+			Detallada</a></li>
+<li><a href="#ejemplo-7">Ejemplo</a></li>
+<li><a href="#conclusi%C3%B3n-11">Conclusión</a></li>
+</ul></li>
+<li><a href="#43-regla-del-tres-rule-of-three">4.3. Regla del Tres (Rule
+			of Three)</a>
+<ul>
+<li><a href="#explicaci%C3%B3n-detallada-13">Explicación
+			Detallada</a></li>
+<li><a href="#ejemplo-8">Ejemplo</a></li>
+<li><a href="#conclusi%C3%B3n-12">Conclusión</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#5-otros-principios-de-dise%C3%B1o-y-buenas-pr%C3%A1cticas">5.
+			Otros Principios de Diseño y Buenas Prácticas</a>
+<ul>
+<li><a href="#51-documentaci%C3%B3n-clara-y-nombres-significativos">5.1.
+			Documentación Clara y Nombres Significativos</a>
+<ul>
+<li><a href="#importancia-de-nombres-significativos">Importancia de
+			Nombres Significativos</a>
+<ul>
+<li><a href="#buenas-pr%C3%A1cticas-para-nombres">Buenas Prácticas para
+			Nombres</a></li>
+<li><a href="#ejemplos-de-nombres-significativos">Ejemplos de Nombres
+			Significativos</a></li>
+</ul></li>
+<li><a href="#documentaci%C3%B3n-clara">Documentación Clara</a></li>
+<li><a href="#conclusi%C3%B3n-13">Conclusión</a></li>
+</ul></li>
+<li><a href="#52-minimizar-el-estado-mutable">5.2. Minimizar el Estado
+			Mutable</a>
+<ul>
+<li><a href="#ventajas-de-minimizar-el-estado-mutable">Ventajas de
+			Minimizar el Estado Mutable</a></li>
+<li><a href="#ejemplos-pr%C3%A1cticos">Ejemplos Prácticos</a></li>
+<li><a href="#estrategias-para-minimizar-el-estado-mutable">Estrategias
+			para Minimizar el Estado Mutable</a></li>
+<li><a href="#conclusi%C3%B3n-14">Conclusión</a></li>
+</ul></li>
+<li><a href="#53-principio-del-m%C3%ADnimo-asombro-principle-of-least-astonishment">5.3.
+			Principio del Mínimo Asombro (Principle of Least Astonishment)</a>
+<ul>
+<li><a href="#explicaci%C3%B3n-detallada-14">Explicación
+			Detallada</a></li>
+<li><a href="#buenas-pr%C3%A1cticas-para-aplicar-el-principio">Buenas
+			Prácticas para Aplicar el Principio</a></li>
+<li><a href="#ejemplo-pr%C3%A1ctico">Ejemplo Práctico</a></li>
+<li><a href="#conclusi%C3%B3n-15">Conclusión</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#resumen-y-conclusiones-finales">Resumen y Conclusiones
+			Finales</a>
+<ul>
+<li><a href="#pr%C3%B3ximos-pasos">Próximos Pasos</a></li>
+</ul></li>
+</ul></li>
+</ul>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+<h2 id="introducción">Introducción</h2>
+<p>En este curso, exploraremos una serie de principios fundamentales de
+			buena programación que te ayudarán a crear código limpio, mantenible y
+			eficiente. Estos principios se pueden aplicar a distintos paradigmas y
+			lenguajes de programación y son esenciales para cualquier programador
+			que desee mejorar sus habilidades. Agruparemos los principios por
+			conceptos para facilitar su comprensión y relación entre ellos.</p>
+<h2 id="1-principios-solid-bases-para-la-programación-orientada-a-objetos">1.
+			Principios SOLID: Bases para la Programación Orientada a Objetos</h2>
+<h3 id="11-single-responsibility-principle-srp">1.1. Single
+			Responsibility Principle (SRP)</h3>
+<p>Cada clase o módulo debe tener una sola responsabilidad o razón para
+			cambiar. En lugar de hacer que una clase gestione tanto la lógica del
+			negocio como la interfaz de usuario, es mejor dividirlas en dos.<br/>
+<em>Ejemplo</em>: Supongamos una clase “GestorDeEmpleados” que guarda
+			empleados en una base de datos y también genera informes. Debemos
+			dividir esta clase en dos: una que se encargue de la persistencia
+			(“RepositorioDeEmpleados”) y otra que gestione los informes
+			(“GeneradorDeInformes”).</p>
+<h4 id="introducción-a-srp">Introducción a SRP</h4>
+<p><strong>Single Responsibility Principle (SRP)</strong>: Este
+			principio establece que una clase o módulo debe tener una única razón
+			para cambiar, es decir, una sola responsabilidad. La idea central es que
+			cada clase sea responsable de una funcionalidad específica y esté
+			enfocada en un área bien definida del negocio.</p>
+<h4 id="explicación-detallada">Explicación Detallada</h4>
+<p>El SRP nos ayuda a mantener el código más organizado y fácil de
+			mantener. Una clase que tiene demasiadas responsabilidades tiende a
+			volverse complicada, lo que dificulta su comprensión, prueba y
+			refactorización. Esto también significa que si hay un cambio en una de
+			las responsabilidades, podrn significa que si hay un cambio en una de
+			las responsabilidades, podr\uía afectar a otras áreas que deberían ser
+			independientes, aumentando la probabilidad de introducir errores.</p>
+<p><strong>Beneficios del SRP</strong>:</p>
+<ol type="1">
+<li><strong>Mantenibilidad</strong>: El código es más fácil de entender
+			y modificar.</li>
+<li><strong>Reusabilidad</strong>: Las clases con responsabilidades
+			únicas se pueden reutilizar más fácilmente en diferentes partes de la
+			aplicación.</li>
+<li><strong>Pruebas</strong>: Las clases simples son más fáciles de
+			probar de forma aislada.</li>
+</ol>
+<h4 id="ejemplo-1-división-de-una-clase-con-múltiples-responsabilidades">Ejemplo
+			1: División de una Clase con Múltiples Responsabilidades</h4>
+<p>Imaginemos una clase llamada <code>GestorDeEmpleados</code> que tiene
+			dos responsabilidades distintas:</p>
+<ul>
+<li>Guardar empleados en la base de datos.</li>
+<li>Generar informes sobre los empleados.</li>
+</ul>
+<p>Esto viola el principio de responsabilidad única, ya que está
+			encargándose de la persistencia y también de la generación de informes.
+			Podemos dividir esta clase en dos:</p>
+<ol type="1">
+<li><strong>Clase <code>RepositorioDeEmpleados</code></strong>:
+			Responsable de la lógica relacionada con el acceso y gestión de los
+			datos de los empleados en la base de datos.</li>
+<li><strong>Clase <code>GeneradorDeInformes</code></strong>: Responsable
+			de crear informes a partir de los datos de los empleados.</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode java"><code class="sourceCode java">public class RepositorioDeEmpleados {
+    public void guardarEmpleado(Empleado empleado) {
+        // Lógica para guardar el empleado en la base de datos
+    }
+
+    public Empleado obtenerEmpleado(int id) {
+        // Lógica para recuperar un empleado
+        return new Empleado();
+    }
+}
+
+public class GeneradorDeInformes {
+    public void generarInforme(List&lt;Empleado&gt; empleados) {
+        // Lógica para generar informes sobre empleados
+    }
+}</code></pre></div>
+<p>Ahora cada clase tiene una única responsabilidad, haciendo que el
+			código sea más fácil de mantener y escalar en el futuro.</p>
+<h4 id="ejemplo-2-aplicación-en-una-api-rest">Ejemplo 2: Aplicación en
+			una API REST</h4>
+<p>Imaginemos una API REST para gestionar productos. Si creamos una
+			clase <code>ControladorDeProductos</code> que maneja la lógica de
+			negocio, la validación y la comunicación con la base de datos, estamos
+			violando SRP. En lugar de esto, podemos dividirla en varias clases:</p>
+<ul>
+<li><strong><code>ControladorDeProductos</code></strong>: Se encarga
+			solo de recibir las peticiones HTTP y devolver respuestas.</li>
+<li><strong><code>ServicioDeProductos</code></strong>: Contiene la
+			lógica de negocio (por ejemplo, validar un producto antes de
+			guardarlo).</li>
+<li><strong><code>RepositorioDeProductos</code></strong>: Encargado de
+			interactuar con la base de datos para guardar, actualizar o eliminar
+			productos.</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode java"><code class="sourceCode java">@RestController
+@RequestMapping("/productos")
+public class ControladorDeProductos {
+    private final ServicioDeProductos servicio;
+
+    public ControladorDeProductos(ServicioDeProductos servicio) {
+        this.servicio = servicio;
+    }
+
+    @PostMapping
+    public ResponseEntity&lt;String&gt; agregarProducto(@RequestBody Producto producto) {
+        servicio.agregarProducto(producto);
+        return ResponseEntity.ok("Producto agregado correctamente");
+    }
+}
+
+@Service
+public class ServicioDeProductos {
+    private final RepositorioDeProductos repositorio;
+
+    public ServicioDeProductos(RepositorioDeProductos repositorio) {
+        this.repositorio = repositorio;
+    }
+
+    public void agregarProducto(Producto producto) {
+        // Validar producto
+        repositorio.guardarProducto(producto);
+    }
+}
+
+@Repository
+public class RepositorioDeProductos {
+    public void guardarProducto(Producto producto) {
+        // Lógica para guardar producto en la base de datos
+    }
+}</code></pre></div>
+<p>En este ejemplo, cada clase tiene una responsabilidad clara, lo que
+			hace que el código sea mucho más mantenible y fácil de probar.</p>
+<h4 id="casos-prácticos">Casos Prácticos</h4>
+<p>El SRP se aplica también a módulos y microservicios. Si un
+			microservicio tiene demasiadas responsabilidades, se vuelve difícil de
+			escalar y mantener. Por ello, es importante diseñar microservicios que
+			cumplan el SRP, donde cada uno se encargue de un aspecto específico del
+			negocio.</p>
+<h4 id="conclusión">Conclusión</h4>
+<p>Aplicar el SRP reduce la complejidad del código y mejora su calidad.
+			La división de responsabilidades permite que los cambios se puedan hacer
+			sin afectar otras partes del sistema, lo cual es clave para mantener un
+			software escalable y robusto.</p>
+<p>Para seguir profundizando, podría ser útil leer sobre otros
+			principios SOLID y cómo estos se complementan entre sí para crear un
+			diseño orientado a objetos más fuerte y coherente. También podrías
+			investigar sobre patrones de diseño como el Patrón Fachada y el Patrón
+			Estrategia, los cuales se alinean bien con el SRP.</p>
+<h3 id="12-openclosed-principle-ocp">1.2. Open/Closed Principle
+			(OCP)</h3>
+<p>El código debe estar abierto a la extensión, pero cerrado a la
+			modificación. Esto significa que deberías poder agregar nuevas
+			funcionalidades sin cambiar el código existente.<br/>
+<em>Ejemplo</em>: Si tienes una clase que procesa pagos, y quieres
+			agregar una nueva forma de pago, puedes crear una nueva clase derivada
+			de una clase base “Pago”, en lugar de modificar la clase original.</p>
+<h4 id="introducción-ocp">Introducción OCP</h4>
+<p><strong>Open/Closed Principle (OCP)</strong>: El principio
+			abierto/cerrado establece que una clase debe estar <strong>abierta a la
+			extensión, pero cerrada a la modificación</strong>. Esto significa que
+			deberías ser capaz de agregar nuevas funcionalidades al sistema sin
+			tener que cambiar el código existente. Este principio es crucial para
+			garantizar que el código sea más fácil de mantener y menos propenso a
+			errores cuando se agregan nuevas características.</p>
+<h4 id="explicación-detallada-1">Explicación Detallada</h4>
+<p>El principio OCP se basa en la idea de que deberíamos minimizar el
+			riesgo de introducir errores en el software cuando añadimos nuevas
+			funcionalidades. Al crear código que esté cerrado a modificaciones pero
+			abierto a la extensión, evitamos tener que hacer cambios en el código
+			base ya probado y comprobado, y en lugar de eso, incorporamos nuevas
+			funcionalidades a través de la herencia, interfaces o patrones de
+			diseño.</p>
+<p><strong>Beneficios del OCP</strong>:</p>
+<ol type="1">
+<li><strong>Reducción del Riesgo</strong>: Minimiza los cambios en el
+			código base, reduciendo la probabilidad de introducir nuevos
+			errores.</li>
+<li><strong>Extensibilidad</strong>: Facilita la adición de nuevas
+			funcionalidades sin afectar el comportamiento de las funcionalidades
+			existentes.</li>
+<li><strong>Flexibilidad</strong>: El sistema se vuelve más adaptable a
+			los cambios y requerimientos futuros.</li>
+</ol>
+<h4 id="ejemplo-1-clase-de-procesador-de-pagos">Ejemplo 1: Clase de
+			Procesador de Pagos</h4>
+<p>Imaginemos que tienes una clase <code>ProcesadorDePagos</code> que
+			inicialmente solo maneja pagos con tarjeta de crédito:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode java"><code class="sourceCode java">public class ProcesadorDePagos {
+    public void procesarPagoTarjetaCredito(TarjetaCredito tarjeta, double monto) {
+        // Lógica para procesar el pago con tarjeta de crédito
+    }
+}</code></pre></div>
+<p>Si en algún momento queremos añadir una nueva forma de pago, como
+			<code>PayPal</code>, necesitaríamos modificar la clase
+			<code>ProcesadorDePagos</code>, lo cual viola el principio OCP. En lugar
+			de esto, podríamos refactorizar la solución para que soporte la
+			extensión mediante el uso de una clase base o interfaz:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode java"><code class="sourceCode java">public interface EstrategiaPago {
+    void procesarPago(double monto);
+}
+
+public class PagoTarjetaCredito implements EstrategiaPago {
+    @Override
+    public void procesarPago(double monto) {
+        // Lógica para procesar el pago con tarjeta de crédito
+    }
+}
+
+public class PagoPayPal implements EstrategiaPago {
+    @Override
+    public void procesarPago(double monto) {
+        // Lógica para procesar el pago con PayPal
+    }
+}
+
+public class ProcesadorDePagos {
+    private final EstrategiaPago estrategiaPago;
+
+    public ProcesadorDePagos(EstrategiaPago estrategiaPago) {
+        this.estrategiaPago = estrategiaPago;
+    }
+
+    public void procesar(double monto) {
+        estrategiaPago.procesarPago(monto);
+    }
+}</code></pre></div>
+<p>Ahora, si deseamos añadir una nueva forma de pago (por ejemplo,
+			<code>PagoConCriptomonedas</code>), simplemente creamos una nueva clase
+			que implemente <code>EstrategiaPago</code> sin modificar las clases ya
+			existentes.</p>
+<h4 id="ejemplo-2-aplicación-de-enrutamiento-en-una-api-rest">Ejemplo 2:
+			Aplicación de Enrutamiento en una API REST</h4>
+<p>Supongamos que tienes un servicio REST que tiene que enrutar
+			solicitudes de acuerdo a diferentes versiones de la API. Inicialmente
+			podrías tener un controlador como este:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode java"><code class="sourceCode java">public class EnrutadorAPI {
+    public void enrutarV1() {
+        // Lógica para enrutar la versión 1
+    }
+
+    public void enrutarV2() {
+        // Lógica para enrutar la versión 2
+    }
+}</code></pre></div>
+<p>Con el tiempo, si sigues agregando versiones, la clase se vuelve
+			difícil de mantener. En lugar de modificar la clase cada vez que se
+			agrega una versión, podríamos refactorizarla para que esté abierta a
+			extensión mediante herencia o inyección de dependencias:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode java"><code class="sourceCode java">public interface EstrategiaEnrutamiento {
+    void enrutar();
+}
+
+public class EnrutamientoV1 implements EstrategiaEnrutamiento {
+    @Override
+    public void enrutar() {
+        // Lógica para enrutar la versión 1
+    }
+}
+
+public class EnrutamientoV2 implements EstrategiaEnrutamiento {
+    @Override
+    public void enrutar() {
+        // Lógica para enrutar la versión 2
+    }
+}
+
+public class EnrutadorAPI {
+    private final EstrategiaEnrutamiento estrategiaEnrutamiento;
+
+    public EnrutadorAPI(EstrategiaEnrutamiento estrategiaEnrutamiento) {
+        this.estrategiaEnrutamiento = estrategiaEnrutamiento;
+    }
+
+    public void enrutar() {
+        estrategiaEnrutamiento.enrutar();
+    }
+}</code></pre></div>
+<p>De esta manera, cada vez que añades una nueva versión de la API,
+			puedes crear una nueva clase que implemente
+			<code>EstrategiaEnrutamiento</code> sin necesidad de modificar el
+			<code>EnrutadorAPI</code>.</p>
+<h4 id="casos-prácticos-1">Casos Prácticos</h4>
+<p>El OCP es especialmente útil en sistemas donde se esperan cambios
+			frecuentes en las funcionalidades. En la programación moderna, el uso de
+			interfaces y patrones de diseño como <strong>Estrategia</strong> y
+			<strong>Decorador</strong> facilita la aplicación de este principio,
+			ayudando a crear sistemas más flexibles y menos acoplados.</p>
+<h4 id="conclusión-1">Conclusión</h4>
+<p>El Principio Abierto/Cerrado nos permite extender funcionalidades sin
+			modificar el código que ya funciona correctamente, lo cual es
+			fundamental para reducir riesgos en la evolución del software. A medida
+			que los sistemas crecen, cumplir con este principio se vuelve vital para
+			mantener la calidad y robustez del software.</p>
+<p>Para profundizar más, es recomendable estudiar cómo aplicar patrones
+			de diseño orientados a objetos y revisar otros principios SOLID, ya que
+			todos ellos están interrelacionados para crear una arquitectura más
+			mantenible. Puedes investigar sobre patrones como el <strong>Patrón
+			Estrategia</strong> o el <strong>Patrón Decorador</strong> para ver cómo
+			se alinean con el OCP.</p>
+<h3 id="13-liskov-substitution-principle-lsp">1.3. Liskov Substitution
+			Principle (LSP)</h3>
+<p>Las clases derivadas deben ser sustituibles por sus clases base sin
+			alterar el comportamiento del programa.<br/>
+<em>Ejemplo</em>: Si tienes una clase “Animal” y otra clase “Pájaro” que
+			hereda de “Animal”, cualquier función que espere un “Animal” debe poder
+			trabajar también con “Pájaro” sin problemas.</p>
+<h4 id="introducción-1">Introducción</h4>
+<p><strong>Liskov Substitution Principle (LSP)</strong>: Este principio
+			establece que una subclase debe ser sustituible por su clase base sin
+			alterar el comportamiento del sistema. En otras palabras, los objetos de
+			una clase derivada deben ser reemplazables por objetos de la clase base
+			sin que el programa falle. Esto garantiza la coherencia y el
+			polimorfismo efectivo en los sistemas orientados a objetos.</p>
+<h4 id="explicación-detallada-2">Explicación Detallada</h4>
+<p>El principio LSP es fundamental para el polimorfismo en la
+			programación orientada a objetos. Si las subclases no se pueden utilizar
+			de manera intercambiable con sus clases base, entonces existe una
+			violación del principio. Este problema normalmente ocurre cuando una
+			subclase cambia el comportamiento esperado, rompiendo la confianza en el
+			contrato definido por la clase base.</p>
+<p><strong>Beneficios del LSP</strong>:</p>
+<ol type="1">
+<li><strong>Consistencia</strong>: Asegura que el sistema funcione de
+			manera coherente cuando se utilizan subclases, ya que estas cumplen con
+			las expectativas establecidas por la clase base.</li>
+<li><strong>Mantenibilidad</strong>: Facilita el mantenimiento del
+			código al reducir el riesgo de comportamientos inesperados al reemplazar
+			clases.</li>
+<li><strong>Polimorfismo Correcto</strong>: Garantiza que el
+			polimorfismo se aplique de forma segura y efectiva.</li>
+</ol>
+<h4 id="ejemplo-1-vehículos-y-coches-eléctricos">Ejemplo 1: Vehículos y
+			Coches Eléctricos</h4>
+<p>Imaginemos una clase base <code>Vehiculo</code> y una subclase
+			<code>CocheElectrico</code>. Supongamos que <code>Vehiculo</code> tiene
+			un método llamado <code>recargarCombustible()</code>. Si intentamos
+			sobrescribir este método en <code>CocheElectrico</code> de manera que no
+			tenga sentido (por ejemplo, lanzando una excepción porque los coches
+			eléctricos no usan combustible), se viola el principio LSP.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode java"><code class="sourceCode java">public class Vehiculo {
+    public void recargarCombustible() {
+        // Lógica para recargar combustible
+    }
+}
+
+public class CocheElectrico extends Vehiculo {
+    @Override
+    public void recargarCombustible() {
+        throw new UnsupportedOperationException("Los coches eléctricos no usan combustible");
+    }
+}</code></pre></div>
+<p>En lugar de tener una relación de herencia, sería más adecuado
+			rediseñar la jerarquía, creando una clase base más abstracta, como
+			<code>Vehiculo</code> con subclases específicas como
+			<code>VehiculoCombustible</code> y <code>VehiculoElectrico</code>. De
+			esta forma, evitamos tener comportamientos que no se aplican a todas las
+			subclases.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode java"><code class="sourceCode java">public abstract class Vehiculo {
+    public abstract void mover();
+}
+
+public class VehiculoCombustible extends Vehiculo {
+    public void recargarCombustible() {
+        // Lógica para recargar combustible
+    }
+
+    @Override
+    public void mover() {
+        // Lógica para mover vehículo a combustión
+    }
+}
+
+public class CocheElectrico extends Vehiculo {
+    public void recargarBateria() {
+        // Lógica para recargar la batería
+    }
+
+    @Override
+    public void mover() {
+        // Lógica para mover vehículo eléctrico
+    }
+}</code></pre></div>
+<p>En este ejemplo, hemos asegurado que cada subclase tiene sólo
+			comportamientos coherentes, respetando el principio LSP.</p>
+<h4 id="ejemplo-2-rectángulo-y-cuadrado">Ejemplo 2: Rectángulo y
+			Cuadrado</h4>
+<p>Este es un ejemplo clásico para explicar el principio de Liskov.
+			Supongamos que tenemos una clase <code>Rectangulo</code> y una subclase
+			<code>Cuadrado</code>. A primera vista, parece que un cuadrado es un
+			tipo de rectángulo, por lo que podría parecer lógico que
+			<code>Cuadrado</code> herede de <code>Rectangulo</code>. Sin embargo, si
+			consideramos los métodos <code>setAncho</code> y <code>setAlto</code> de
+			<code>Rectangulo</code>, se violaría el LSP, ya que el comportamiento
+			esperado del cuadrado sería diferente:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode java"><code class="sourceCode java">public class Rectangulo {
+    protected int ancho;
+    protected int alto;
+
+    public void setAncho(int ancho) {
+        this.ancho = ancho;
+    }
+
+    public void setAlto(int alto) {
+        this.alto = alto;
+    }
+
+    public int calcularArea() {
+        return ancho * alto;
+    }
+}
+
+public class Cuadrado extends Rectangulo {
+    @Override
+    public void setAncho(int ancho) {
+        this.ancho = this.alto = ancho;
+    }
+
+    @Override
+    public void setAlto(int alto) {
+        this.ancho = this.alto = alto;
+    }
+}</code></pre></div>
+<p>Este diseño provoca problemas, ya que la lógica del cuadrado obliga a
+			que el ancho y el alto siempre sean iguales, lo cual no es lo que un
+			usuario de la clase <code>Rectangulo</code> podría esperar. Esto rompe
+			el principio de sustitución de Liskov porque no se puede utilizar un
+			<code>Cuadrado</code> donde se espere un <code>Rectangulo</code> sin
+			cambiar el comportamiento del sistema.</p>
+<p>Una mejor solución sería tener una abstracción más general, como
+			<code>Figura</code>, y luego definir <code>Rectangulo</code> y
+			<code>Cuadrado</code> como clases independientes que implementen la
+			interfaz de <code>Figura</code>.</p>
+<h4 id="casos-prácticos-2">Casos Prácticos</h4>
+<p>El LSP es esencial cuando trabajamos con jerarquías de herencia en
+			sistemas orientados a objetos. Si no se respeta este principio,
+			podr໚haber inconsistencias y errores difíciles de detectar en tiempo de
+			ejecución. En la práctica, aplicar LSP también nos ayuda a identificar
+			cuando la herencia no es la solución adecuada y cuando es preferible una
+			composición o una relación diferente.</p>
+<h4 id="conclusión-2">Conclusión</h4>
+<p>El Principio de Sustitución de Liskov asegura que las subclases
+			puedan sustituir a sus clases base sin generar errores o comportamientos
+			inesperados, garantizando la coherencia del sistema. Cuando diseñes
+			jerarquías de herencia, asegúrate de que las subclases sean 100%
+			compatibles con las expectativas establecidas por sus clases base.</p>
+<p>Para profundizar más en este principio, podría ser útil leer sobre
+			otros principios SOLID y conceptos como el <strong>Diseño por
+			Contrato</strong> y el uso adecuado de <strong>interfaces</strong> y
+			<strong>abstracciones</strong> para reducir las dependencias y mejorar
+			la cohesión del código.</p>
+<h3 id="14-interface-segregation-principle-isp">1.4. Interface
+			Segregation Principle (ISP)</h3>
+<p>Es mejor tener muchas interfaces pequeñas que una sola interfaz
+			grande. Las clases no deben verse forzadas a implementar métodos que no
+			utilizan.<br/>
+<em>Ejemplo</em>: Si tienes una interfaz “Vehículo” que define métodos
+			“volar” y “correr”, un coche no debe implementar el método “volar”. Es
+			mejor dividirla en interfaces más pequeñas como “VehículoTerrestre” y
+			“VehículoAéreo”.</p>
+<h4 id="introducción-2">Introducción</h4>
+<p><strong>Interface Segregation Principle (ISP)</strong>: Este
+			principio establece que los clientes no deben verse forzados a depender
+			de interfaces que no utilizan. En otras palabras, es mejor tener muchas
+			interfaces específicas y pequeñas que una interfaz general y grande.
+			Esto permite a las clases implementar solo los métodos que realmente
+			necesitan, evitando un acoplamiento innecesario y facilitando la
+			reutilización del código.</p>
+<h4 id="explicación-detallada-3">Explicación Detallada</h4>
+<p>El ISP nos anima a dividir interfaces grandes y monolíticas en más
+			pequeñas y cohesivas. Esto mejora la flexibilidad y reduce el
+			acoplamiento entre los componentes, ya que los clientes solo implementan
+			métodos relevantes para ellos. En lugar de obligar a una clase a
+			implementar métodos que no necesita, se crean interfaces específicas
+			para cada necesidad.</p>
+<p><strong>Beneficios del ISP</strong>:</p>
+<ol type="1">
+<li><strong>Reducción del Acoplamiento</strong>: Minimiza la dependencia
+			innecesaria entre clases, haciendo el código más fácil de mantener y
+			extender.</li>
+<li><strong>Flexibilidad</strong>: Permite que las clases evolucionen de
+			manera independiente.</li>
+<li><strong>Reusabilidad</strong>: Facilita la reutilización del código,
+			ya que las clases implementan solo lo que realmente les interesa.</li>
+</ol>
+<h4 id="ejemplo-1-trabajo-con-múltiples-tipos-de-impresoras">Ejemplo 1:
+			Trabajo con Múltiples Tipos de Impresoras</h4>
+<p>Supongamos que tenemos una interfaz llamada <code>Impresora</code>
+			con varios métodos:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode java"><code class="sourceCode java">public interface Impresora {
+    void imprimirDocumento();
+    void escanearDocumento();
+    void enviarFax();
+}</code></pre></div>
+<p>Ahora, si una clase <code>ImpresoraBasica</code> implementa esta
+			interfaz, se ve forzada a implementar también
+			<code>escanearDocumento()</code> y <code>enviarFax()</code>, incluso si
+			no soporta esas funcionalidades. Esto viola el ISP.</p>
+<p>Una solución más adecuada sería dividir esta interfaz en más
+			pequeñas, cada una con una responsabilidad específica:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode java"><code class="sourceCode java">public interface ImpresoraBasica {
+    void imprimirDocumento();
+}
+
+public interface Escaner {
+    void escanearDocumento();
+}
+
+public interface Fax {
+    void enviarFax();
+}</code></pre></div>
+<p>De esta forma, <code>ImpresoraBasica</code> solo implementará la
+			interfaz <code>ImpresoraBasica</code>, mientras que una impresora
+			multifuncional podría implementar <code>ImpresoraBasica</code>,
+			<code>Escaner</code>, y <code>Fax</code> si lo necesita. Esto asegura
+			que las clases solo implementen lo que es relevante para ellas.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode java"><code class="sourceCode java">public class ImpresoraBasicaImpl implements ImpresoraBasica {
+    @Override
+    public void imprimirDocumento() {
+        // Lógica para imprimir un documento
+    }
+}
+
+public class ImpresoraMultifuncional implements ImpresoraBasica, Escaner, Fax {
+    @Override
+    public void imprimirDocumento() {
+        // Lógica para imprimir un documento
+    }
+
+    @Override
+    public void escanearDocumento() {
+        // Lógica para escanear un documento
+    }
+
+    @Override
+    public void enviarFax() {
+        // Lógica para enviar un fax
+    }
+}</code></pre></div>
+<h4 id="ejemplo-2-aplicación-de-control-de-vehículos">Ejemplo 2:
+			Aplicación de Control de Vehículos</h4>
+<p>Supongamos que estás desarrollando un sistema para controlar
+			diferentes tipos de vehículos y tienes una interfaz
+			<code>Vehiculo</code> que define métodos como
+			<code>encenderMotor()</code>, <code>apagarMotor()</code>, y
+			<code>volar()</code>. Si intentas implementar esta interfaz para un
+			coche, claramente el método <code>volar()</code> no es aplicable.</p>
+<p>En lugar de tener una interfaz tan amplia, podemos dividirla en
+			interfaces más específicas:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode java"><code class="sourceCode java">public interface VehiculoTerrestre {
+    void encenderMotor();
+    void apagarMotor();
+}
+
+public interface VehiculoAereo {
+    void volar();
+}</code></pre></div>
+<p>Ahora, un <code>Coche</code> solo implementará la interfaz
+			<code>VehiculoTerrestre</code>, mientras que un <code>Avion</code>
+			podría implementar tanto <code>VehiculoTerrestre</code> como
+			<code>VehiculoAereo</code> si tiene ambas capacidades. Esto cumple con
+			el ISP porque cada clase solo se ocupa de los métodos que son relevantes
+			para su comportamiento.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode java"><code class="sourceCode java">public class Coche implements VehiculoTerrestre {
+    @Override
+    public void encenderMotor() {
+        // Lógica para encender el motor del coche
+    }
+
+    @Override
+    public void apagarMotor() {
+        // Lógica para apagar el motor del coche
+    }
+}
+
+public class Avion implements VehiculoTerrestre, VehiculoAereo {
+    @Override
+    public void encenderMotor() {
+        // Lógica para encender el motor del avión
+    }
+
+    @Override
+    public void apagarMotor() {
+        // Lógica para apagar el motor del avión
+    }
+
+    @Override
+    public void volar() {
+        // Lógica para volar
+    }
+}</code></pre></div>
+<h4 id="casos-prácticos-3">Casos Prácticos</h4>
+<p>El principio de segregación de interfaces es particularmente
+			importante en sistemas grandes donde una interfaz monolítica podría
+			hacer que la implementación se vuelva compleja y difícil de mantener.
+			Aplicando ISP, logramos que los clientes dependan solo de aquello que
+			realmente utilizan, haciendo el sistema más manejable y fácil de
+			probar.</p>
+<h4 id="conclusión-3">Conclusión</h4>
+<p>El Principio de Segregación de Interfaces ayuda a evitar diseños con
+			interfaces infladas que fuerzan a las clases a implementar métodos
+			innecesarios. Dividir las interfaces en contratos más pequeños y
+			específicos permite un acoplamiento más bajo y una mejor reutilización
+			del código. Al aplicar este principio, se facilita la extensión de los
+			sistemas sin introducir complejidades innecesarias.</p>
+<p>Para profundizar más en este principio, podría ser útil explorar
+			patrones de diseño como el <strong>Patrón Adaptador</strong> y revisar
+			la forma en que <strong>los principios SOLID</strong> se complementan
+			entre sí para construir una arquitectura coherente y modular.</p>
+<h3 id="15-dependency-inversion-principle-dip">1.5. Dependency Inversion
+			Principle (DIP)</h3>
+<p>Los módulos de alto nivel no deben depender de los módulos de bajo
+			nivel. Ambos deben depender de abstracciones.<br/>
+<em>Ejemplo</em>: En lugar de que una clase “GestorDeCompras” cree
+			directamente instancias de la clase “BaseDeDatos”, debería depender de
+			una interfaz “Repositorio”, lo que permite cambiar la implementación de
+			la base de datos sin afectar al código principal.</p>
+<h4 id="introducción-3">Introducción</h4>
+<p><strong>Dependency Inversion Principle (DIP)</strong>: Este principio
+			establece que los módulos de alto nivel no deben depender de los módulos
+			de bajo nivel. Ambos deben depender de abstracciones. Además, las
+			abstracciones no deben depender de los detalles, sino que los detalles
+			deben depender de las abstracciones. En otras palabras, el DIP nos
+			indica que debemos invertir las dependencias para reducir el
+			acoplamiento entre componentes.</p>
+<h4 id="explicación-detallada-4">Explicación Detallada</h4>
+<p>El objetivo del DIP es crear un sistema que sea más flexible y fácil
+			de modificar. En un sistema que no cumple con este principio, los
+			módulos de alto nivel dependen directamente de los detalles de
+			implementación de módulos de bajo nivel, lo cual genera un alto
+			acoplamiento. Esto significa que cualquier cambio en un módulo de bajo
+			nivel obliga a modificar el módulo de alto nivel, lo cual puede ser
+			costoso y riesgoso.</p>
+<p>Para cumplir con el DIP, los módulos de alto nivel y de bajo nivel
+			deben depender de abstracciones (por ejemplo, interfaces o clases
+			abstractas). Esto permite desacoplar las clases y facilita el reemplazo
+			de una implementación por otra sin afectar al resto del sistema.</p>
+<p><strong>Beneficios del DIP</strong>:</p>
+<ol type="1">
+<li><strong>Reducción del Acoplamiento</strong>: Separa las dependencias
+			de los detalles de implementación, haciendo el código más modular y
+			mantenible.</li>
+<li><strong>Reutilización del Código</strong>: Facilita la reutilización
+			de módulos, ya que están desacoplados de implementaciones
+			específicas.</li>
+<li><strong>Facilidad para Realizar Cambios</strong>: Al depender de
+			abstracciones, es mucho más fácil cambiar la implementación sin afectar
+			a los consumidores.</li>
+</ol>
+<h4 id="ejemplo-1-sistema-de-notificaciones">Ejemplo 1: Sistema de
+			Notificaciones</h4>
+<p>Supongamos que tenemos una clase
+			<code>ControladorNotificaciones</code> que envía notificaciones por
+			correo electrónico utilizando una clase <code>EmailService</code>:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode java"><code class="sourceCode java">public class EmailService {
+    public void enviarEmail(String mensaje) {
+        // Lógica para enviar email
+    }
+}
+
+public class ControladorNotificaciones {
+    private EmailService emailService;
+
+    public ControladorNotificaciones() {
+        this.emailService = new EmailService();
+    }
+
+    public void notificar(String mensaje) {
+        emailService.enviarEmail(mensaje);
+    }
+}</code></pre></div>
+<p>En este ejemplo, <code>ControladorNotificaciones</code> depende
+			directamente de <code>EmailService</code>, lo cual viola el DIP porque
+			el módulo de alto nivel (<code>ControladorNotificaciones</code>) depende
+			del módulo de bajo nivel (<code>EmailService</code>). Para resolver
+			esto, podemos crear una abstracción, como una interfaz
+			<code>NotificacionService</code>, y hacer que <code>EmailService</code>
+			la implemente:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode java"><code class="sourceCode java">public interface NotificacionService {
+    void enviar(String mensaje);
+}
+
+public class EmailService implements NotificacionService {
+    @Override
+    public void enviar(String mensaje) {
+        // Lógica para enviar email
+    }
+}
+
+public class ControladorNotificaciones {
+    private NotificacionService notificacionService;
+
+    public ControladorNotificaciones(NotificacionService notificacionService) {
+        this.notificacionService = notificacionService;
+    }
+
+    public void notificar(String mensaje) {
+        notificacionService.enviar(mensaje);
+    }
+}</code></pre></div>
+<p>De esta manera, <code>ControladorNotificaciones</code> depende de la
+			abstracción <code>NotificacionService</code> en lugar de la
+			implementación concreta <code>EmailService</code>. Esto nos permite
+			cambiar fácilmente la forma de enviar notificaciones, por ejemplo,
+			agregando una nueva clase <code>SMSService</code> que también implemente
+			<code>NotificacionService</code>.</p>
+<h4 id="ejemplo-2-control-de-almacenamiento">Ejemplo 2: Control de
+			Almacenamiento</h4>
+<p>Supongamos que tienes una aplicación que almacena datos en un sistema
+			de archivos utilizando una clase <code>FileStorage</code>. Si luego
+			decides cambiar a una base de datos para almacenar los datos, el
+			acoplamiento directo con <code>FileStorage</code> puede hacer que esto
+			sea complicado.</p>
+<p>En lugar de depender directamente de <code>FileStorage</code>,
+			creamos una interfaz <code>Almacenamiento</code>:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode java"><code class="sourceCode java">public interface Almacenamiento {
+    void guardar(String datos);
+}
+
+public class FileStorage implements Almacenamiento {
+    @Override
+    public void guardar(String datos) {
+        // Lógica para guardar en el sistema de archivos
+    }
+}
+
+public class DatabaseStorage implements Almacenamiento {
+    @Override
+    public void guardar(String datos) {
+        // Lógica para guardar en la base de datos
+    }
+}
+
+public class Aplicacion {
+    private Almacenamiento almacenamiento;
+
+    public Aplicacion(Almacenamiento almacenamiento) {
+        this.almacenamiento = almacenamiento;
+    }
+
+    public void procesarDatos(String datos) {
+        almacenamiento.guardar(datos);
+    }
+}</code></pre></div>
+<p>En este caso, la clase <code>Aplicacion</code> depende de la
+			abstracción <code>Almacenamiento</code>, lo que permite cambiar entre
+			<code>FileStorage</code> y <code>DatabaseStorage</code> fácilmente sin
+			modificar la lógica de <code>Aplicacion</code>.</p>
+<h4 id="casos-prácticos-4">Casos Prácticos</h4>
+<p>El DIP es particularmente relevante en arquitecturas complejas donde
+			el acoplamiento entre módulos debe minimizarse para garantizar la
+			mantenibilidad. En la práctica, la inyección de dependencias (Dependency
+			Injection, DI) se utiliza frecuentemente para cumplir con este
+			principio, permitiendo que las dependencias se inyecten en lugar de ser
+			creadas dentro de los módulos.</p>
+<h4 id="conclusión-4">Conclusión</h4>
+<p>El Principio de Inversión de Dependencias nos ayuda a crear código
+			más modular y fácil de mantener al invertir las dependencias entre los
+			módulos de alto y bajo nivel. Para aplicar este principio correctamente,
+			es fundamental depender de abstracciones y utilizar patrones como la
+			<strong>Inyección de Dependencias</strong>. Esto permite una mejor
+			escalabilidad y flexibilidad en el diseño del software.</p>
+<p>Para profundizar más en este principio, podría ser útil explorar
+			conceptos como <strong>Inyección de Dependencias (DI)</strong>,
+			<strong>Contenedores de Inversión de Control (IoC)</strong> y revisar
+			cómo el DIP se complementa con otros principios SOLID para crear una
+			arquitectura robusta y desacoplada.</p>
+<h2 id="2-principios-de-simplicidad-y-mantenimiento">2. Principios de
+			Simplicidad y Mantenimiento</h2>
+<h3 id="21-mantén-el-código-simple-kiss---keep-it-simple-stupid"><strong>2.1.
+			Mantén el Código Simple (KISS - Keep It Simple, Stupid)</strong></h3>
+<h4 id="explicación-extensa">Explicación Extensa</h4>
+<p>El principio KISS, cuya traducción podría ser "Mantenlo Simple,
+			Estúpido", nos recuerda la importancia de no complicar en exceso el
+			código. La complejidad innecesaria es uno de los mayores enemigos del
+			mantenimiento y la expansión de software. Mantener el código simple
+			implica evitar construcciones complicadas, estructuras de datos
+			innecesarias y redundancias que podrían hacer que el código se convierta
+			en un rompecabezas indescifrable.</p>
+<p>Hay dos razones principales para mantener el código simple:</p>
+<ol type="1">
+<li><p><strong>Fácil de Entender</strong>: Un código simple es más fácil
+			de entender para cualquier desarrollador que se acerque a él, ya sea un
+			colega, un nuevo miembro del equipo, o incluso tú mismo después de
+			meses. El esfuerzo por simplificar el código es esencial para reducir la
+			carga cognitiva.</p></li>
+<li><p><strong>Reducción de Errores</strong>: Cuanto más simple sea el
+			código, menor es la probabilidad de que contenga errores. Las partes
+			complicadas suelen ser propensas a fallos y a menudo pueden llevar a
+			escenarios imprevistos o bugs difíciles de resolver.</p></li>
+</ol>
+<p>El concepto no implica que siempre debamos evitar las soluciones
+			complejas cuando estas sean estrictamente necesarias. Sin embargo, si
+			existe una solución más simple que funcione igual de bien, esa debe ser
+			la elección por defecto.</p>
+<h4 id="ejemplo-detallado">Ejemplo Detallado</h4>
+<p>Considera una situación donde tenemos que validar si un número es
+			par. Veamos dos maneras diferentes de hacerlo:</p>
+<p><strong>Código Complejo:</strong></p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode java"><code class="sourceCode java">public boolean esPar(int numero) {
+    boolean resultado = false;
+    if (numero % 2 == 0) {
+        resultado = true;
+    }
+    return resultado;
+}</code></pre></div>
+<p>Aquí vemos varias líneas que, aunque logran el propósito de validar
+			si un número es par, añaden complejidad innecesaria. Estamos utilizando
+			una condición <code>if</code> y una variable <code>resultado</code> que
+			puede evitarse, lo que hace el código más verboso de lo necesario.</p>
+<p><strong>Código Simple (Aplicando KISS):</strong></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode java"><code class="sourceCode java">public boolean esPar(int numero) {
+    return numero % 2 == 0;
+}</code></pre></div>
+<p>La segunda versión hace lo mismo, pero de una manera más directa y
+			fácil de entender. No hay condiciones adicionales ni variables
+			intermedias, y el propósito del método queda claro a simple vista.</p>
+<p><strong>Otro Ejemplo:</strong></p>
+<p>Consideremos un método que calcula el precio con descuento y añade
+			impuestos:</p>
+<p><strong>Código Complejo:</strong></p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode java"><code class="sourceCode java">public double calcularPrecio(double precioBase, double descuento, double impuesto) {
+    double precioConDescuento = precioBase - (precioBase * (descuento / 100));
+    double precioFinal = precioConDescuento + (precioConDescuento * (impuesto / 100));
+    return precioFinal;
+}</code></pre></div>
+<p>En este ejemplo, aunque el código es funcional, se podría simplificar
+			para que el cálculo sea más legible:</p>
+<p><strong>Código Simple:</strong></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode java"><code class="sourceCode java">public double calcularPrecio(double precioBase, double descuento, double impuesto) {
+    return precioBase * (1 - descuento / 100) * (1 + impuesto / 100);
+}</code></pre></div>
+<p>En la versión simplificada, hemos eliminado variables intermedias y
+			hemos combinado las operaciones en una sola expresión matemática clara,
+			lo cual facilita su lectura. Este enfoque evita distracciones y permite
+			que el lector entienda el propósito del cálculo con mayor facilidad.</p>
+<h4 id="consejos-prácticos-para-aplicar-kiss">Consejos Prácticos para
+			Aplicar KISS</h4>
+<ol type="1">
+<li><p><strong>Evita el Uso de Patrones Complejos sin
+			Necesidad</strong>: Muchos desarrolladores intentan implementar patrones
+			de diseño solo porque parecen "elegantes", sin considerar si realmente
+			son necesarios en el contexto. Utiliza patrones de diseño solo cuando
+			aporten un valor claro.</p></li>
+<li><p><strong>Prefiere Lenguajes de Alto Nivel</strong>: Utiliza
+			características del lenguaje de programación que simplifiquen las
+			tareas. Evita implementar manualmente funciones cuando existen métodos o
+			bibliotecas que ya lo hacen eficientemente.</p></li>
+<li><p><strong>Reutiliza Funciones Sencillas</strong>: Divide el código
+			en funciones pequeñas y reutilizables. En lugar de tener una función que
+			maneje múltiples tareas, asegúrate de dividirla para que cada función
+			haga una sola cosa.</p></li>
+</ol>
+<h4 id="errores-comunes-que-violentan-kiss">Errores Comunes que
+			Violentan KISS</h4>
+<ul>
+<li><p><strong>Overengineering</strong>: Añadir funcionalidades o
+			complejidades que aún no son necesarias porque "podrían" ser útiles en
+			el futuro. Esto contraviene otro principio llamado <strong>YAGNI (You
+			Aren’t Gonna Need It)</strong>, que señala que no debes implementar
+			características innecesarias antes de tiempo.</p></li>
+<li><p><strong>Uso Innecesario de Herencia</strong>: A veces, se crea
+			una jerarquía compleja de clases cuando una composición simple (usar
+			clases dentro de otras) podría ser más efectiva.</p></li>
+</ul>
+<h3 id="22-no-repitas-código-dry---dont-repeat-yourself">2.2. No Repitas
+			Código (DRY - Don't Repeat Yourself)</h3>
+<h4 id="explicación">Explicación</h4>
+<p>El principio DRY (Don't Repeat Yourself) nos invita a evitar la
+			duplicación de lógica o información dentro del código. Cada fragmento de
+			conocimiento o funcionalidad debe tener una única representación dentro
+			del sistema. Este principio se enfoca en minimizar la redundancia para
+			facilitar el mantenimiento y reducir los errores que surgen cuando hay
+			varias versiones de la misma lógica que deben actualizarse
+			simultáneamente.</p>
+<p>Cuando repetimos código, cada instancia repetida se convierte en una
+			fuente potencial de inconsistencia. Si se necesita modificar el
+			comportamiento, todas las versiones deben ser actualizadas, y el riesgo
+			de olvidar alguna es considerablemente alto. DRY ayuda a evitar esto
+			mediante la unificación de lógica repetida.</p>
+<h4 id="ejemplo-detallado-1">Ejemplo Detallado</h4>
+<p>Consideremos un sistema en el que se necesita calcular el precio
+			final de un producto aplicando un descuento y luego agregando impuestos.
+			Supongamos que esta lógica está duplicada en varios lugares del
+			código.</p>
+<p><strong>Código que Viola DRY:</strong></p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode java"><code class="sourceCode java">public double calcularPrecioTotalProductoA(double precioBase) {
+    double precioConDescuento = precioBase - (precioBase * 0.10); // 10% de descuento
+    return precioConDescuento + (precioConDescuento * 0.21); // 21% de IVA
+}
+
+public double calcularPrecioTotalProductoB(double precioBase) {
+    double precioConDescuento = precioBase - (precioBase * 0.15); // 15% de descuento
+    return precioConDescuento + (precioConDescuento * 0.21); // 21% de IVA
+}</code></pre></div>
+<p>En este ejemplo, vemos dos métodos que tienen lógica muy similar:
+			aplicar un descuento y luego agregar un impuesto. Aunque los porcentajes
+			de descuento varían, el cálculo del IVA es el mismo, y si se modifica la
+			tasa de IVA, tendríamos que actualizarla en todos los métodos que la
+			utilizan, aumentando la probabilidad de errores.</p>
+<p><strong>Código Aplicando DRY:</strong></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode java"><code class="sourceCode java">public double calcularPrecioConDescuento(double precioBase, double descuento) {
+    return precioBase * (1 - descuento / 100);
+}
+
+public double calcularPrecioConIVA(double precio) {
+    return precio + (precio * 0.21);
+}
+
+public double calcularPrecioTotalProductoA(double precioBase) {
+    double precioConDescuento = calcularPrecioConDescuento(precioBase, 10);
+    return calcularPrecioConIVA(precioConDescuento);
+}
+
+public double calcularPrecioTotalProductoB(double precioBase) {
+    double precioConDescuento = calcularPrecioConDescuento(precioBase, 15);
+    return calcularPrecioConIVA(precioConDescuento);
+}</code></pre></div>
+<p>Al separar la lógica en métodos reutilizables
+			(<code>calcularPrecioConDescuento</code> y
+			<code>calcularPrecioConIVA</code>), evitamos la duplicación de código.
+			Ahora, si el cálculo del IVA cambia, solo necesitamos modificar el
+			método <code>calcularPrecioConIVA</code>, lo cual reduce
+			significativamente la probabilidad de errores y hace que el
+			mantenimiento sea más eficiente.</p>
+<h4 id="consejos-prácticos-para-aplicar-dry">Consejos Prácticos para
+			Aplicar DRY</h4>
+<ol type="1">
+<li><p><strong>Refactoriza Código Repetido</strong>: Si encuentras
+			fragmentos de código que se repiten, refactorízalos en métodos o clases
+			reutilizables.</p></li>
+<li><p><strong>Utiliza Abstracciones</strong>: Agrupa lógica similar en
+			clases o componentes reutilizables. Si varias partes del sistema
+			comparten una lógica común, es un buen indicio de que esta lógica
+			debería abstraerse.</p></li>
+<li><p><strong>Aplica DRY en Diferentes Niveles</strong>: No solo a
+			nivel de métodos, sino también en el diseño de clases, módulos y bases
+			de datos. Por ejemplo, evita tener los mismos datos replicados en
+			diferentes tablas.</p></li>
+</ol>
+<h4 id="errores-comunes-que-violentan-dry">Errores Comunes que Violentan
+			DRY</h4>
+<ul>
+<li><p><strong>Copiar y Pegar Código</strong>: Es una práctica común
+			pero peligrosa. Aunque parece más rápido en el momento, a largo plazo
+			genera problemas de mantenimiento y aumenta la probabilidad de
+			errores.</p></li>
+<li><p><strong>Falta de Abstracción</strong>: A veces, por falta de
+			experiencia o por prisas, no se abstrae correctamente la lógica que
+			puede ser reutilizable, lo cual lleva a una alta duplicación del
+			código.</p></li>
+</ul>
+<h4 id="beneficios-de-aplicar-dry">Beneficios de Aplicar DRY</h4>
+<ul>
+<li><p><strong>Mantenimiento Simplificado</strong>: Al tener una única
+			representación de la lógica, los cambios se realizan en un solo lugar,
+			lo cual reduce el esfuerzo y la posibilidad de introducir
+			errores.</p></li>
+<li><p><strong>Legibilidad Mejorada</strong>: El código se vuelve más
+			limpio y fácil de entender, ya que no se encuentra con las mismas
+			secciones repetidas, lo cual puede hacer que el código sea más
+			confuso.</p></li>
+</ul>
+<h3 id="23-yagni-you-arent-gonna-need-it">2.3. YAGNI (You Aren't Gonna
+			Need It)</h3>
+<p>No construyas funcionalidades a menos que realmente las necesites. El
+			código innecesario agrega complejidad y dificulta el
+			mantenimiento.<br/>
+<em>Ejemplo</em>: No prepares el código para manejar diez tipos de
+			usuarios distintos si por ahora solo hay dos.</p>
+<h4 id="introducción-4">Introducción</h4>
+<p><strong>YAGNI (You Aren't Gonna Need It)</strong> es un principio que
+			nos recuerda que no debemos implementar funcionalidades anticipadamente,
+			es decir, no debemos añadir características al código simplemente porque
+			podríamos necesitarlas en el futuro. Este enfoque se basa en la premisa
+			de que agregar funcionalidad innecesaria aumenta la complejidad del
+			sistema y consume recursos sin aportar un valor real e inmediato.</p>
+<h4 id="explicación-detallada-5">Explicación Detallada</h4>
+<p>El principio YAGNI está estrechamente relacionado con la filosofía
+			ágil, donde se prioriza el desarrollo iterativo y el valor inmediato
+			para el cliente. A menudo, los desarrolladores caen en la trampa de
+			anticiparse a posibles requisitos futuros y comienzan a agregar
+			funcionalidades que creen que serán útiles más adelante. Sin embargo,
+			esto suele dar lugar a código no utilizado, que además es más difícil de
+			mantener y probar.</p>
+<p>Cada línea de código adicional conlleva un costo: mayor dificultad
+			para entender el sistema, más pruebas, y más oportunidades de introducir
+			errores. Además, los requisitos suelen cambiar a lo largo del
+			desarrollo, por lo que lo que pensabas que necesitarías en el futuro
+			puede no ser lo que finalmente se requiere.</p>
+<p>Para evitar violar YAGNI, es importante enfocarse en los requisitos
+			actuales y en las historias de usuario presentes. Si en el futuro surge
+			la necesidad de una nueva característica, podrás agregarla con base en
+			la realidad y no en suposiciones.</p>
+<h4 id="ejemplo">Ejemplo</h4>
+<p>Imaginemos que estás desarrollando un sistema de gestión de
+			inventario y piensas que en el futuro podrías necesitar una
+			funcionalidad para gestionar el inventario de múltiples almacenes. Sin
+			embargo, el requisito actual solo incluye la gestión de un único
+			almacén. Aplicar YAGNI significa que deberías implementar solo la lógica
+			para un almacén. Si en el futuro surge la necesidad de múltiples
+			almacenes, podrías extender el sistema de manera incremental y
+			controlada.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode java"><code class="sourceCode java">public class Inventario {
+    private List&lt;Item&gt; items;
+
+    public void agregarItem(Item item) {
+        items.add(item);
+    }
+
+    public List&lt;Item&gt; obtenerItems() {
+        return items;
+    }
+}</code></pre></div>
+<p>En lugar de intentar diseñar una arquitectura compleja que soporte
+			múltiples almacenes desde el principio, mantén el código simple y
+			enfocado en el problema actual. Esto te permitirá ser más ágil y reducir
+			la complejidad innecesaria.</p>
+<h4 id="conclusión-5">Conclusión</h4>
+<p>YAGNI es fundamental para evitar sobrecargar el sistema con código
+			innecesario. Al enfocarte en los requisitos actuales y no en lo que
+			"podrías necesitar", aseguras que el código sea más sencillo, mantenible
+			y fácil de probar. La clave está en mantener el desarrollo lo más simple
+			posible y abordar nuevas funcionalidades solo cuando sea absolutamente
+			necesario. Para profundizar en este principio, puedes estudiar enfoques
+			ágiles como <strong>Extreme Programming (XP)</strong> y prácticas de
+			<strong>refactorización continua</strong> para mejorar el sistema a
+			medida que cambian los requisitos.</p>
+<h3 id="24-simplicidad-vs-complejidad-accidental">2.4. Simplicidad vs
+			Complejidad Accidental</h3>
+<p>Evita la complejidad accidental generada por decisiones innecesarias
+			de diseño.<br/>
+<em>Ejemplo</em>: Si estás creando un API REST, no uses patrones
+			complejos como microservicios si una arquitectura monolítica resuelve el
+			problema con menor complejidad.</p>
+<h4 id="introducción-5">Introducción</h4>
+<p>La <strong>Simplicidad vs Complejidad Accidental</strong> es un
+			concepto importante en el desarrollo de software. La <strong>complejidad
+			esencial</strong> se refiere a la dificultad inherente del problema que
+			estás intentando resolver. Sin embargo, la <strong>complejidad
+			accidental</strong> surge de las decisiones de diseño o implementación
+			que se toman durante el desarrollo y que añaden una dificultad
+			innecesaria. Este tipo de complejidad puede ser evitado si se busca
+			siempre la solución más simple que cumpla con los requisitos
+			actuales.</p>
+<h4 id="explicación-detallada-6">Explicación Detallada</h4>
+<p>La complejidad accidental es el resultado de agregar componentes,
+			patrones o abstracciones que no son necesarias para resolver el problema
+			en cuestión. Muchas veces, los desarrolladores introducen complejidad
+			innecesaria al querer usar tecnologías avanzadas, patrones de diseño
+			complejos o arquitecturas distribuidas cuando una solución más simple
+			sería suficiente.</p>
+<p>Por ejemplo, el uso de microservicios ha ganado mucha popularidad,
+			pero no siempre es la mejor opción. Si una aplicación es lo
+			suficientemente pequeña como para ser desarrollada y mantenida como un
+			monolito, el uso de microservicios solo añade complejidad adicional,
+			como la orquestación de servicios, la gestión de redes y la consistencia
+			de datos. Esto se convierte en una fuente de complejidad accidental que
+			puede hacer el sistema mucho más difícil de mantener y operar.</p>
+<p>Optar por la simplicidad significa tomar decisiones de diseño que
+			minimicen la complejidad sin comprometer la funcionalidad. Esto implica
+			elegir patrones y arquitecturas que se alineen con los requisitos reales
+			del proyecto en lugar de aquellos que son simplemente "de moda" o que
+			podrían ser necesarios para futuros requisitos hipotéticos.</p>
+<h4 id="ejemplo-1">Ejemplo</h4>
+<p>Supongamos que estás desarrollando una API REST para una pequeña
+			empresa que necesita gestionar sus productos y clientes. Podrías optar
+			por implementar una arquitectura monolítica que exponga todos los
+			endpoints necesarios en una única aplicación. Sin embargo, si decides
+			utilizar microservicios porque "podrían ser útiles en el futuro",
+			estarías introduciendo complejidad accidental.</p>
+<p>En lugar de ello, mantener el diseño simple con una arquitectura
+			monolítica te permite enfocarte en entregar valor rápidamente, sin
+			añadir la carga de gestionar múltiples servicios, infraestructura
+			distribuida o la lógica de comunicación entre microservicios.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode java"><code class="sourceCode java">@RestController
+@RequestMapping("/productos")
+public class ProductoController {
+    @GetMapping("/{id}")
+    public Producto obtenerProducto(@PathVariable Long id) {
+        // Lógica para obtener producto por ID
+    }
+
+    @PostMapping
+    public void agregarProducto(@RequestBody Producto producto) {
+        // Lógica para agregar un nuevo producto
+    }
+}</code></pre></div>
+<p>En este caso, la solución más simple cumple perfectamente con los
+			requisitos actuales y minimiza la complejidad accidental que podría
+			introducirse al intentar implementar una arquitectura más
+			sofisticada.</p>
+<h4 id="conclusión-6">Conclusión</h4>
+<p>La simplicidad es clave para crear sistemas sostenibles y
+			mantenibles. La complejidad accidental no solo dificulta el desarrollo y
+			mantenimiento del software, sino que también reduce la velocidad a la
+			que se puede responder a los cambios. Evitar la complejidad innecesaria
+			permite crear sistemas más robustos y fáciles de entender. Para
+			profundizar en este tema, es recomendable leer sobre la
+			<strong>arquitectura monolítica vs microservicios</strong> y
+			<strong>técnicas de refactorización</strong> que pueden ayudar a
+			simplificar sistemas complejos.</p>
+<h2 id="3-principios-de-modularidad-y-abstracción">3. Principios de
+			Modularidad y Abstracción</h2>
+<h3 id="31-separación-de-conceptos-separation-of-concerns">3.1.
+			Separación de Conceptos (Separation of Concerns)</h3>
+<p>Cada módulo o clase debe manejar un aspecto independiente del
+			sistema. Esto mejora la claridad, la mantenibilidad y la reutilización
+			del código.</p>
+<h4 id="introducción-6">Introducción</h4>
+<p>La <strong>Separación de Conceptos</strong> es un principio clave en
+			el diseño de software que nos insta a dividir un sistema en partes que
+			manejen preocupaciones independientes. Esto significa que cada
+			componente debe tener una responsabilidad bien definida y no mezclarse
+			con otras responsabilidades. Al aplicar esta separación, conseguimos que
+			el código sea más fácil de entender, mantener y extender. Esto también
+			contribuye a la reducción del acoplamiento, facilitando el cambio de un
+			módulo sin afectar otros.</p>
+<h4 id="explicación-detallada-7">Explicación Detallada</h4>
+<p>La separación de conceptos se centra en dividir un sistema complejo
+			en partes manejables y especializadas. Cada módulo debe tener una única
+			responsabilidad, como por ejemplo la lógica de negocio, la presentación,
+			el acceso a datos, etc. Mantener estas responsabilidades separadas
+			permite cambios y mejoras en una parte sin tener un impacto desmedido en
+			otras. Esto ayuda a reducir los errores y hace que la base de código sea
+			más predecible.</p>
+<p>Un buen ejemplo es el patrón <strong>Modelo-Vista-Controlador
+			(MVC)</strong>, donde la lógica de presentación (Vista), la lógica de
+			negocio (Modelo), y el flujo de aplicación (Controlador) están separados
+			en componentes distintos. Esto no solo hace que el sistema sea más fácil
+			de modificar, sino que también facilita el trabajo en equipo, donde
+			diferentes desarrolladores pueden trabajar en distintas capas sin
+			interferencias.</p>
+<h4 id="ejemplo-2">Ejemplo</h4>
+<p>Consideremos una aplicación web para la gestión de productos. La
+			aplicación debe mostrar información de productos, manejar la lógica de
+			negocios para crear y actualizar productos, y acceder a una base de
+			datos para almacenarlos. Utilizando la separación de conceptos,
+			podríamos tener tres componentes distintos:</p>
+<ol type="1">
+<li><strong>Controlador (Controller)</strong>: Maneja las solicitudes
+			del usuario y coordina las respuestas adecuadas.</li>
+<li><strong>Servicio de Negocio (Service)</strong>: Contiene la lógica
+			de negocios, como las reglas para validar y calcular descuentos en
+			productos.</li>
+<li><strong>Repositorio (Repository)</strong>: Se encarga del acceso a
+			datos, realizando las operaciones CRUD en la base de datos.</li>
+</ol>
+<div class="sourceCode" id="cb26"><pre class="sourceCode java"><code class="sourceCode java">@RestController
+@RequestMapping("/productos")
+public class ProductoController {
+    private final ProductoService productoService;
+
+    public ProductoController(ProductoService productoService) {
+        this.productoService = productoService;
+    }
+
+    @GetMapping("/{id}")
+    public Producto obtenerProducto(@PathVariable Long id) {
+        return productoService.obtenerProductoPorId(id);
+    }
+
+    @PostMapping
+    public void agregarProducto(@RequestBody Producto producto) {
+        productoService.agregarProducto(producto);
+    }
+}
+
+@Service
+public class ProductoService {
+    private final ProductoRepository productoRepository;
+
+    public ProductoService(ProductoRepository productoRepository) {
+        this.productoRepository = productoRepository;
+    }
+
+    public Producto obtenerProductoPorId(Long id) {
+        return productoRepository.findById(id).orElseThrow(() -&gt; new ProductoNoEncontradoException("Producto no encontrado"));
+    }
+
+    public void agregarProducto(Producto producto) {
+        // Lógica de negocio, como validaciones
+        productoRepository.save(producto);
+    }
+}
+
+@Repository
+public interface ProductoRepository extends JpaRepository&lt;Producto, Long&gt; {
+}</code></pre></div>
+<p>En este ejemplo:</p>
+<ul>
+<li>El <strong>Controller</strong> se encarga de recibir las solicitudes
+			HTTP y devolver respuestas, sin lógica de negocio o acceso a datos.</li>
+<li>El <strong>Service</strong> contiene la lógica de negocio y las
+			reglas para manejar los productos.</li>
+<li>El <strong>Repository</strong> se ocupa únicamente del acceso a la
+			base de datos.</li>
+</ul>
+<p>Esta separación permite que los cambios en la lógica de negocio o en
+			la forma en que se accede a los datos no afecten al controlador, y
+			viceversa.</p>
+<h4 id="conclusión-7">Conclusión</h4>
+<p>La separación de conceptos mejora la organización del código y
+			facilita la colaboración en proyectos grandes. Al dividir el sistema en
+			módulos que manejan responsabilidades específicas, logramos una
+			arquitectura más limpia y fácil de mantener. Este principio también
+			ayuda a reducir el acoplamiento y mejora la capacidad de prueba y
+			modificación del software. Para profundizar en este tema, sería útil
+			explorar patrones de diseño como <strong>MVC</strong>, <strong>Inyección
+			de Dependencias (DI)</strong> y conceptos de <strong>arquitectura limpia
+			(Clean Architecture)</strong>.</p>
+<h3 id="32-acoplamiento">3.2. Acoplamiento</h3>
+<p>El <strong>acoplamiento</strong> se refiere al grado de dependencia
+			entre módulos. Idealmente, se busca minimizar el acoplamiento, ya que
+			módulos altamente acoplados dificultan el mantenimiento y la
+			reutilización del código. Un bajo acoplamiento significa que los módulos
+			pueden cambiar sin afectar significativamente a otros.</p>
+<p>Mantener un <strong>bajo acoplamiento</strong> es esencial para
+			asegurar que los cambios realizados en una parte del sistema no afecten
+			innecesariamente a otras. Cuando los módulos están poco acoplados,
+			significa que tienen pocas dependencias entre sí, lo cual hace que el
+			sistema sea más fácil de mantener, probar y extender.</p>
+<h4 id="explicación-detallada-8">Explicación Detallada</h4>
+<p>El acoplamiento puede ser alto o bajo. Un <strong>alto
+			acoplamiento</strong> indica que los módulos están fuertemente
+			conectados, lo cual complica el mantenimiento, ya que los cambios en un
+			módulo suelen provocar modificaciones en otros. En cambio, un
+			<strong>bajo acoplamiento</strong> permite que los módulos operen de
+			forma más independiente, lo que facilita la evolución del sistema.</p>
+<p>Para lograr bajo acoplamiento, es recomendable utilizar interfaces y
+			servicios bien definidos que permitan la interacción entre los módulos
+			de forma flexible y sin dependencias internas complejas. Además, el uso
+			de patrones de diseño como el <strong>Patrón Fachada (Facade)</strong> o
+			<strong>Inyección de Dependencias (DI)</strong> ayuda a minimizar las
+			dependencias entre módulos.</p>
+<h4 id="ejemplo-3">Ejemplo</h4>
+<p>Consideremos una aplicación que gestiona usuarios y pedidos. El
+			módulo de gestión de pedidos necesita información sobre los usuarios,
+			pero en lugar de depender directamente de la implementación del módulo
+			de usuarios, puede interactuar a través de una interfaz o servicio que
+			le proporcione solo la información necesaria.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode java"><code class="sourceCode java">public class GestorDeUsuarios {
+    public Usuario obtenerUsuario(int id) {
+        // Lógica para obtener un usuario
+    }
+}
+
+public class GestorDePedidos {
+    private final GestorDeUsuarios gestorDeUsuarios;
+
+    public GestorDePedidos(GestorDeUsuarios gestorDeUsuarios) {
+        this.gestorDeUsuarios = gestorDeUsuarios;
+    }
+
+    public void procesarPedido(int idUsuario, Pedido pedido) {
+        Usuario usuario = gestorDeUsuarios.obtenerUsuario(idUsuario);
+        // Lógica para procesar el pedido del usuario
+    }
+}</code></pre></div>
+<p>En este ejemplo, el módulo <code>GestorDePedidos</code> tiene un
+			<strong>bajo acoplamiento</strong> respecto al módulo
+			<code>GestorDeUsuarios</code>, ya que solo interactúa con él a través de
+			métodos públicos bien definidos. Esto facilita la posibilidad de
+			reemplazar la lógica de usuarios sin tener que modificar el módulo de
+			pedidos.</p>
+<h4 id="tipos-de-acoplamiento">Tipos de Acoplamiento</h4>
+<ol type="1">
+<li><p><strong>Acoplamiento de Contenido</strong>: Es el peor tipo de
+			acoplamiento. Ocurre cuando un módulo modifica el contenido o
+			comportamiento interno de otro módulo.</p>
+<ul>
+<li><strong>Ejemplo</strong>: Un método de una clase que accede
+			directamente a los atributos privados de otra clase. Esto genera una
+			gran dependencia y hace que el sistema sea muy frágil ante cambios.</li>
+</ul></li>
+<li><p><strong>Acoplamiento Común</strong>: Se da cuando varios módulos
+			comparten las mismas variables globales.</p>
+<ul>
+<li><strong>Ejemplo</strong>: Dos clases que acceden y modifican una
+			misma variable global. Cambiar la variable implica modificar todos los
+			módulos que la utilizan.</li>
+</ul></li>
+<li><p><strong>Acoplamiento Externo</strong>: Se refiere a la
+			dependencia de un módulo en elementos externos al sistema, como sistemas
+			operativos, hardware o bases de datos.</p>
+<ul>
+<li><strong>Ejemplo</strong>: Un módulo que depende de una base de datos
+			específica para funcionar, como una clase <code>GestorDeUsuarios</code>
+			que solo funciona si existe una conexión con una base de datos
+			MySQL.</li>
+</ul></li>
+<li><p><strong>Acoplamiento de Control</strong>: Un módulo controla el
+			comportamiento de otro pasando información que afecta su ejecución.</p>
+<ul>
+<li><strong>Ejemplo</strong>: Un método que pasa un "flag" a otro método
+			para determinar qué código ejecutar. Esto hace que ambos módulos estén
+			estrechamente vinculados.</li>
+</ul></li>
+<li><p><strong>Acoplamiento de Datos</strong>: Es uno de los tipos de
+			acoplamiento menos problemáticos. Ocurre cuando un módulo pasa a otro
+			solo la información que necesita.</p>
+<ul>
+<li><strong>Ejemplo</strong>: Un método
+			<code>procesarPedido(Pedido pedido)</code> que recibe un objeto
+			<code>Pedido</code> con toda la información necesaria para procesarlo.
+			Este tipo de acoplamiento es deseable porque minimiza la
+			dependencia.</li>
+</ul></li>
+<li><p><strong>Acoplamiento de Mensaje</strong>: Se da cuando los
+			módulos interactúan a través de la comunicación de mensajes, sin
+			compartir información interna.</p>
+<ul>
+<li><strong>Ejemplo</strong>: Un sistema de microservicios donde cada
+			servicio se comunica mediante APIs REST. Cada servicio actúa de manera
+			independiente y solo intercambia mensajes necesarios.</li>
+</ul></li>
+</ol>
+<h3 id="33-cohesión">3.3. Cohesión</h3>
+<p>La <strong>cohesión</strong> se refiere a lo bien que las
+			responsabilidades dentro de un módulo están relacionadas entre sí.
+			<strong>Alta cohesión</strong> significa que un módulo o clase se centra
+			en un conjunto específico de responsabilidades estrechamente
+			relacionadas y colaboran para cumplir un objetivo específico. Esto
+			mejora la mantenibilidad y la reutilización del módulo, ya que cada
+			pieza del código tiene un propósito claro y definido. En otras palabras,
+			una clase o módulo altamente cohesivo realiza una tarea única y clara,
+			lo que facilita su comprensión y mantenimiento.</p>
+<h4 id="explicación-detallada-9">Explicación Detallada</h4>
+<p>Una <strong>alta cohesión</strong> implica que las funciones dentro
+			de un módulo contribuyen a un propósito bien definido y tienen una
+			relación directa. Los módulos con alta cohesión son más fáciles de
+			entender y probar porque sus responsabilidades no se dispersan ni
+			mezclan con tareas que deberían estar en otros lugares.</p>
+<p>Por otro lado, un <strong>baja cohesión</strong> indica que un módulo
+			está encargado de múltiples responsabilidades que no están relacionadas
+			entre sí, lo cual hace que el código sea difícil de mantener y propenso
+			a errores. Mantener una alta cohesión facilita la división del trabajo y
+			asegura que los cambios realizados en una funcionalidad específica no
+			afecten a otras responsabilidades dentro del mismo módulo.</p>
+<h4 id="ejemplo-4">Ejemplo</h4>
+<p>Consideremos un módulo que gestiona únicamente el registro de
+			usuarios. Este módulo se encarga de validar los datos de registro, crear
+			la cuenta del usuario y almacenarla en la base de datos. Esta es una
+			<strong>alta cohesión</strong>, ya que todas las funciones están
+			relacionadas con el proceso de registro del usuario.</p>
+<p>Por otro lado, un módulo que gestiona tanto el registro de usuarios
+			como el envío de correos de confirmación tendría <strong>baja
+			cohesión</strong>, ya que mezcla responsabilidades diferentes: la
+			gestión de usuarios y la gestión de notificaciones.</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode java"><code class="sourceCode java">public class RegistroUsuario {
+    public void registrarUsuario(Usuario usuario) {
+        // Validación de datos del usuario
+        // Registro del usuario en la base de datos
+    }
+}
+
+public class EnvioNotificaciones {
+    public void enviarCorreoConfirmacion(Usuario usuario) {
+        // Lógica para enviar un correo de confirmación
+    }
+}</code></pre></div>
+<h4 id="tipos-de-cohesión">Tipos de Cohesión</h4>
+<ol type="1">
+<li><p><strong>Cohesión Funcional</strong>: Es la forma más deseable de
+			cohesión. Ocurre cuando todos los elementos de un módulo colaboran para
+			cumplir una única función claramente definida.</p>
+<ul>
+<li><strong>Ejemplo</strong>: Una clase
+			<code>CalculadoraImpuestos</code> que tiene métodos solo para calcular
+			diferentes tipos de impuestos. Todos sus métodos están relacionados con
+			el cálculo de impuestos, lo cual es una única responsabilidad.</li>
+</ul></li>
+<li><p><strong>Cohesión Secuencial</strong>: Se da cuando el resultado
+			de una parte del módulo es utilizado como entrada para otra parte del
+			módulo.</p>
+<ul>
+<li><strong>Ejemplo</strong>: Un método que primero valida datos de
+			entrada y luego procesa esa información. Ambas tareas están relacionadas
+			y deben ocurrir en secuencia.</li>
+</ul></li>
+<li><p><strong>Cohesión Comunicacional</strong>: Ocurre cuando las
+			funciones del módulo operan sobre el mismo conjunto de datos.</p>
+<ul>
+<li><strong>Ejemplo</strong>: Una clase <code>GestorDeArchivos</code>
+			que contiene métodos para leer, escribir y borrar datos de un mismo
+			archivo.</li>
+</ul></li>
+<li><p><strong>Cohesión Lógica</strong>: Los elementos de un módulo
+			están relacionados lógicamente, pero realizan tareas diferentes.</p>
+<ul>
+<li><strong>Ejemplo</strong>: Un método que gestiona operaciones de
+			entrada/salida, como leer de un archivo o escribir en consola,
+			dependiendo de ciertos parámetros.</li>
+</ul></li>
+</ol>
+<p>En este ejemplo, hemos separado la lógica de
+			<strong>registro</strong> de la lógica de <strong>envío de
+			correos</strong> en dos clases diferentes, cada una con
+			responsabilidades bien definidas y estrechamente relacionadas con sus
+			respectivas tareas. De este modo, logramos <strong>alta
+			cohesión</strong> en ambos módulos.</p>
+<h4 id="conclusión-8">Conclusión</h4>
+<p>Mantener <strong>alta cohesión</strong> y <strong>bajo
+			acoplamiento</strong> son prácticas fundamentales para diseñar sistemas
+			que sean mantenibles y escalables. Mientras que la cohesión se enfoca en
+			asegurar que cada módulo tenga un propósito claro, el acoplamiento busca
+			minimizar las dependencias entre ellos. Un sistema compuesto por módulos
+			con alta cohesión y bajo acoplamiento tiende a ser más robusto, flexible
+			y fácil de mantener a largo plazo.<em>Ejemplo</em>: Si tienes un módulo
+			que hace llamadas a una API, asegúrate de que el resto del sistema no
+			dependa directamente de él.</p>
+<h3 id="34-relación-entre-cohesión-y-acoplamiento">3.4. Relación entre
+			Cohesión y Acoplamiento</h3>
+<p>La cohesión y el acoplamiento son dos conceptos clave en la
+			ingeniería de software que están estrechamente relacionados y, a menudo,
+			deben equilibrarse para lograr una arquitectura sólida y mantenible. La
+			<strong>cohesión</strong> se refiere a lo bien que las responsabilidades
+			dentro de un módulo están relacionadas entre sí, mientras que el
+			<strong>acoplamiento</strong> se refiere al grado de dependencia entre
+			diferentes módulos del sistema.</p>
+<h4 id="explicación-detallada-10">Explicación Detallada</h4>
+<ul>
+<li><p><strong>Cohesión Alta</strong>: Una alta cohesión implica que las
+			funciones dentro de un módulo están estrechamente relacionadas y
+			contribuyen a un propósito bien definido. Los módulos con alta cohesión
+			son más fáciles de entender, reutilizar y mantener. Por ejemplo, una
+			clase que se encarga únicamente de la validación de datos tiene alta
+			cohesión porque todas sus responsabilidades están alineadas con un
+			objetivo específico.</p></li>
+<li><p><strong>Bajo Acoplamiento</strong>: Un acoplamiento bajo implica
+			que los módulos tienen pocas dependencias entre sí, lo que permite que
+			cambios en un módulo tengan un impacto mínimo en otros. Esto facilita el
+			mantenimiento y la evolución del sistema, ya que los módulos pueden ser
+			modificados, reemplazados o probados de forma aislada.</p></li>
+</ul>
+<p>La relación ideal entre cohesión y acoplamiento es tener <strong>alta
+			cohesión y bajo acoplamiento</strong>. Un sistema compuesto por módulos
+			muy cohesionados y con pocas dependencias es más robusto, más fácil de
+			mantener y más adaptable a cambios.</p>
+<h4 id="ejemplo-5">Ejemplo</h4>
+<p>Supongamos que tenemos una aplicación que gestiona usuarios y
+			pedidos. Podemos diseñar dos módulos separados: uno para la gestión de
+			usuarios y otro para la gestión de pedidos. Si cada módulo se enfoca
+			solo en sus respectivas responsabilidades, tendremos <strong>alta
+			cohesión</strong>. Además, si la comunicación entre estos módulos se
+			realiza a través de interfaces claramente definidas y sin dependencias
+			directas, logramos <strong>bajo acoplamiento</strong>.</p>
+<p>Por ejemplo, el módulo de gestión de pedidos no debería necesitar
+			conocer los detalles internos del módulo de usuarios. En lugar de eso,
+			podría recibir la información del usuario a través de una interfaz o un
+			servicio externo que proporcione solo los datos necesarios, evitando así
+			dependencias innecesarias.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode java"><code class="sourceCode java">public class GestorDeUsuarios {
+    public Usuario obtenerUsuario(int id) {
+        // Lógica para obtener un usuario
+    }
+}
+
+public class GestorDePedidos {
+    private GestorDeUsuarios gestorDeUsuarios;
+
+    public GestorDePedidos(GestorDeUsuarios gestorDeUsuarios) {
+        this.gestorDeUsuarios = gestorDeUsuarios;
+    }
+
+    public void procesarPedido(int idUsuario, Pedido pedido) {
+        Usuario usuario = gestorDeUsuarios.obtenerUsuario(idUsuario);
+        // Lógica para procesar el pedido del usuario
+    }
+}</code></pre></div>
+<p>En este ejemplo, el módulo <code>GestorDePedidos</code> tiene
+			<strong>bajo acoplamiento</strong> respecto al módulo
+			<code>GestorDeUsuarios</code> ya que depende solo de una interfaz clara
+			para obtener los datos del usuario. Al mismo tiempo, cada módulo tiene
+			<strong>alta cohesión</strong> porque cada uno se encarga de
+			responsabilidades específicas y bien definidas.</p>
+<h4 id="conclusión-9">Conclusión</h4>
+<p>Mantener <strong>alta cohesión</strong> y <strong>bajo
+			acoplamiento</strong> es crucial para diseñar sistemas que sean fáciles
+			de mantener y de extender. Mientras la cohesión se enfoca en asegurar
+			que un módulo haga bien su tarea, el acoplamiento busca minimizar la
+			dependencia entre módulos. Un sistema bien diseñado debe lograr un
+			balance óptimo entre ambos conceptos para asegurar su estabilidad y
+			flexibilidad a largo plazo.</p>
+<h2 id="4-principios-para-la-robustez-y-la-flexibilidad-del-código">4.
+			Principios para la Robustez y la Flexibilidad del Código</h2>
+<h3 id="41-principio-de-demeter-law-of-demeter">4.1. Principio de
+			Demeter (Law of Demeter)</h3>
+<p>Un objeto debe conocer y hablar solo con sus amigos inmediatos. Este
+			principio, también conocido como "No hables con extraños", busca reducir
+			el acoplamiento innecesario entre clases, lo que hace que el código sea
+			más fácil de mantener y menos propenso a errores.</p>
+<h4 id="explicación-detallada-11">Explicación Detallada</h4>
+<p>El <strong>Principio de Demeter</strong> establece que un objeto debe
+			comunicarse solo con:</p>
+<ul>
+<li>Sus propios atributos.</li>
+<li>Objetos que recibe como parámetros.</li>
+<li>Objetos que crea directamente.</li>
+</ul>
+<p>Esto significa que un objeto no debe interactuar con partes internas
+			de otros objetos que no le pertenezcan directamente, ya que esto aumenta
+			el acoplamiento y hace que el sistema sea más difícil de modificar sin
+			introducir errores. Seguir este principio contribuye a un diseño más
+			limpio y reduce la posibilidad de dependencias implícitas no
+			deseadas.</p>
+<h4 id="ejemplo-6">Ejemplo</h4>
+<p>Consideremos una clase <code>Cliente</code> que contiene un objeto
+			<code>Cuenta</code>. Si el método de <code>Cliente</code> necesita
+			acceder al saldo de la <code>Cuenta</code>, debería utilizar un método
+			en la clase <code>Cuenta</code> para obtener esa información, en lugar
+			de acceder directamente a los atributos internos de
+			<code>Cuenta</code>.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode java"><code class="sourceCode java">public class Cuenta {
+    private double saldo;
+
+    public double getSaldo() {
+        return saldo;
+    }
+}
+
+public class Cliente {
+    private Cuenta cuenta;
+
+    public double obtenerSaldoCuenta() {
+        return cuenta.getSaldo();  // No accedemos directamente al atributo saldo
+    }
+}</code></pre></div>
+<p>En este ejemplo, el <code>Cliente</code> utiliza el método
+			<code>getSaldo()</code> para obtener el saldo de la <code>Cuenta</code>,
+			en lugar de acceder directamente al campo <code>saldo</code>. De este
+			modo, <code>Cliente</code> solo se comunica con los métodos públicos de
+			<code>Cuenta</code>, respetando el Principio de Demeter.</p>
+<h4 id="conclusión-10">Conclusión</h4>
+<p>El Principio de Demeter ayuda a reducir el acoplamiento entre
+			objetos, fomentando la independencia entre ellos y promoviendo un diseño
+			más claro y mantenible. Mantener el conocimiento de un objeto limitado a
+			sus relaciones inmediatas reduce la complejidad del sistema y facilita
+			la evolución del código.</p>
+<h3 id="42-fail-fast-fallar-rápido">4.2. Fail Fast (Fallar Rápido)</h3>
+<p>Detecta errores lo antes posible para evitar propagar problemas más
+			adelante en el código. Esto implica que, al detectar una condición
+			inválida, se debe lanzar una excepción de inmediato en lugar de permitir
+			que el error avance en el sistema y cause problemas más difíciles de
+			diagnosticar.</p>
+<h4 id="explicación-detallada-12">Explicación Detallada</h4>
+<p>El enfoque de <strong>Fail Fast</strong> se utiliza para detectar
+			problemas de manera rápida y directa. Al identificar y reportar errores
+			lo antes posible, el sistema puede evitar estados inconsistentes y
+			ayudar a los desarrolladores a identificar la causa raíz de los errores
+			de manera más eficiente. Este principio también mejora la robustez del
+			código y minimiza el tiempo requerido para la depuración.</p>
+<h4 id="ejemplo-7">Ejemplo</h4>
+<p>Supongamos que tienes un método que recibe como parámetro un número
+			que debe ser positivo. En lugar de permitir que el valor avance y
+			provoque un error más adelante en el código, puedes verificar al inicio
+			y lanzar una excepción si no se cumple la condición.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode java"><code class="sourceCode java">public void procesarNumero(int numero) {
+    if (numero &lt;= 0) {
+        throw new IllegalArgumentException("El número debe ser positivo");
+    }
+    // Continuar con la lógica del método
+}</code></pre></div>
+<p>En este ejemplo, si <code>numero</code> no es positivo, el programa
+			lanzará una excepción inmediatamente, evitando que se ejecute cualquier
+			código posterior que podría depender de que <code>numero</code> tenga un
+			valor válido.</p>
+<h4 id="conclusión-11">Conclusión</h4>
+<p>El principio <strong>Fail Fast</strong> permite identificar problemas
+			temprano en el ciclo de ejecución, evitando que los errores se propaguen
+			y causando fallos más difíciles de rastrear. Adoptar este enfoque
+			conduce a sistemas más robustos y más fáciles de mantener.</p>
+<h3 id="43-regla-del-tres-rule-of-three">4.3. Regla del Tres (Rule of
+			Three)</h3>
+<p>No abstraigas hasta que encuentres el mismo código al menos tres
+			veces. Esto previene la abstracción prematura, que puede hacer que el
+			código sea innecesariamente complejo.</p>
+<h4 id="explicación-detallada-13">Explicación Detallada</h4>
+<p>La <strong>Regla del Tres</strong> establece que no debes intentar
+			refactorizar o abstraer código hasta que no hayas visto la misma lógica
+			o fragmento de código repetirse tres veces. La idea detrás de este
+			principio es evitar la abstracción prematura, que podría complicar el
+			código sin un beneficio claro. Cuando algo se repite una o dos veces,
+			todavía podría ser un caso aislado. Sin embargo, si lo encuentras tres
+			veces, es una buena señal de que el patrón es lo suficientemente común
+			como para justificar la refactorización.</p>
+<h4 id="ejemplo-8">Ejemplo</h4>
+<p>Supongamos que tienes tres fragmentos de código que realizan la misma
+			tarea de formatear una fecha en tres clases diferentes. Al detectar esta
+			tercera repetición, puedes crear una utilidad para encapsular esta
+			lógica y reutilizarla en lugar de tener código duplicado.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode java"><code class="sourceCode java">public class UtilidadFechas {
+    public static String formatearFecha(Date fecha) {
+        SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
+        return formato.format(fecha);
+    }
+}
+
+// Uso en distintas clases
+String fechaFormateada = UtilidadFechas.formatearFecha(fecha);</code></pre></div>
+<p>En este ejemplo, después de ver que la misma lógica de formateo se
+			repite varias veces, se crea una clase <code>UtilidadFechas</code> que
+			encapsula esa lógica, eliminando así el código duplicado y facilitando
+			el mantenimiento.</p>
+<h4 id="conclusión-12">Conclusión</h4>
+<p>La <strong>Regla del Tres</strong> nos ayuda a evitar la tentación de
+			abstraer código demasiado pronto. Al esperar a que un patrón se repita
+			tres veces, aseguramos que la abstracción sea verdaderamente necesaria,
+			evitando así la complejidad innecesaria que acompaña la abstracción
+			prematura.</p>
+<h2 id="5-otros-principios-de-diseño-y-buenas-prácticas">5. Otros
+			Principios de Diseño y Buenas Prácticas</h2>
+<h3 id="51-documentación-clara-y-nombres-significativos">5.1.
+			Documentación Clara y Nombres Significativos</h3>
+<p>Los nombres de variables, funciones y clases deben ser lo más
+			explicativos posible para que el código sea fácil de entender y
+			mantener. Usar nombres significativos facilita el trabajo en equipo y
+			reduce el tiempo requerido para comprender lo que hace cada parte del
+			código. Es preferible invertir algo de tiempo eligiendo nombres
+			adecuados que describan claramente la responsabilidad o el propósito de
+			un elemento del código, que ahorrar tiempo inicialmente y tener
+			problemas de mantenimiento después.</p>
+<h4 id="importancia-de-nombres-significativos">Importancia de Nombres
+			Significativos</h4>
+<p>Los nombres significativos permiten que otros desarrolladores (o el
+			mismo programador, pasado un tiempo) puedan entender el código sin
+			necesidad de dedicar mucho esfuerzo a desentrañar lo que hace cada
+			variable o método. La clave es que el nombre de una variable, función o
+			clase refleje su propósito y, si es posible, la forma en que se usa.</p>
+<p>Por ejemplo, en lugar de tener una variable llamada <code>x</code>,
+			podríamos llamarla <code>contadorDeUsuarios</code> si representa la
+			cantidad de usuarios. Del mismo modo, un método llamado
+			<code>procesar</code> podría ser <code>procesarPedidos</code> si su
+			función es procesar pedidos, dejando claro su propósito específico.</p>
+<h5 id="buenas-prácticas-para-nombres">Buenas Prácticas para
+			Nombres</h5>
+<ol type="1">
+<li><p><strong>Evitar Abreviaturas Incomprensibles</strong>: Aunque
+			abreviaturas como <code>cnt</code> para "contador" puedan ser fáciles de
+			escribir, dificultan la comprensión del código. En su lugar, se debe
+			optar por escribir <code>contador</code> para que sea evidente lo que se
+			está representando.</p>
+<ul>
+<li><strong>Ejemplo</strong>: Usar <code>totalVentas</code> en lugar de
+			<code>totV</code>.</li>
+</ul></li>
+<li><p><strong>Utilizar Verbos en Funciones</strong>: Las funciones
+			representan acciones, por lo que sus nombres deben comenzar con verbos
+			que describan claramente lo que hacen.</p>
+<ul>
+<li><strong>Ejemplo</strong>: En lugar de llamar a una función
+			<code>datos()</code>, usar <code>obtenerDatos()</code> o
+			<code>cargarDatos()</code>.</li>
+</ul></li>
+<li><p><strong>Clases como Sustantivos</strong>: Las clases representan
+			entidades, y sus nombres deben ser sustantivos que describan lo que
+			modelan en el sistema.</p>
+<ul>
+<li><strong>Ejemplo</strong>: <code>GestorDePedidos</code>,
+			<code>Usuario</code>, <code>Factura</code>.</li>
+</ul></li>
+<li><p><strong>Longitud de Nombres Adecuada</strong>: Los nombres deben
+			ser lo suficientemente largos para ser claros, pero sin ser
+			innecesariamente verbosos. Es decir, evita nombres extremadamente cortos
+			que no aportan información, y nombres extremadamente largos que hacen
+			difícil la lectura.</p>
+<ul>
+<li><strong>Ejemplo</strong>: Usar <code>fechaNacimiento</code> en lugar
+			de <code>fNac</code> o
+			<code>laFechaExactaDelNacimientoDelUsuario</code>.</li>
+</ul></li>
+<li><p><strong>Consistencia en el Formato</strong>: Mantener un formato
+			consistente para nombrar los elementos. Por ejemplo, usar camelCase para
+			variables y funciones (<code>calcularImpuestos()</code>), y PascalCase
+			para clases (<code>GestorDePagos</code>). Esto facilita la lectura y
+			mantiene un estándar que todos los desarrolladores pueden
+			seguir.</p></li>
+</ol>
+<h5 id="ejemplos-de-nombres-significativos">Ejemplos de Nombres
+			Significativos</h5>
+<ol type="1">
+<li><p><strong>Variables</strong>:</p>
+<ul>
+<li>En lugar de usar <code>d</code>, utilizar
+			<code>fechaDeEntrega</code>.</li>
+<li>Cambiar <code>v</code> por <code>ventasAnuales</code> para reflejar
+			con claridad lo que representa.</li>
+</ul></li>
+<li><p><strong>Funciones</strong>:</p>
+<ul>
+<li><code>calcularSalarioMensual()</code> en lugar de
+			<code>calcularSalario()</code>, para especificar claramente el
+			período.</li>
+<li><code>enviarNotificacionDeUsuario()</code> en lugar de
+			<code>notificacion()</code>, para indicar qué tipo de notificación se
+			envía.</li>
+</ul></li>
+<li><p><strong>Clases</strong>:</p>
+<ul>
+<li><code>ClienteVIP</code> en lugar de <code>ClienteEspecial</code> si
+			se desea destacar una categoría específica de clientes.</li>
+<li><code>GestorDeInventario</code> en lugar de <code>Inventario</code>,
+			para aclarar que la clase gestiona el inventario y no solo lo
+			representa.</li>
+</ul></li>
+</ol>
+<h4 id="documentación-clara">Documentación Clara</h4>
+<p>La documentación clara también desempeña un papel crucial. No basta
+			con usar nombres significativos; a veces es necesario proporcionar
+			contexto adicional. Esto se logra mediante comentarios que expliquen el
+			"por qué" detrás de una decisión de código o un enfoque particular. Es
+			importante que los comentarios sean precisos y no redundantes; un buen
+			nombre reduce la necesidad de comentarios, pero no siempre los elimina.
+			La documentación debe considerarse parte del código, y como tal, debe
+			mantenerse actualizada. Documentar en exceso puede ser contraproducente,
+			ya que los comentarios que no aportan valor o están desactualizados
+			generan confusión y dificultan el mantenimiento. Por ello, se debe
+			evitar documentar en exceso código que no lo requiera.</p>
+<p><strong>Ejemplo</strong>:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode java"><code class="sourceCode java">// Calcula el impuesto sobre el salario en base al porcentaje regional.
+double calcularImpuesto(double salario) {
+    // El 10% es la tasa de impuesto estándar en la región actual
+    return salario * 0.10;
+}</code></pre></div>
+<p>En este ejemplo, el comentario proporciona contexto sobre el
+			porcentaje del impuesto y por qué se usa, lo cual no queda claro solo
+			con el código.</p>
+<h4 id="conclusión-13">Conclusión</h4>
+<p>El uso de nombres significativos y una documentación clara permite
+			que el código sea más intuitivo, lo cual reduce el tiempo necesario para
+			entenderlo y facilita su mantenimiento. Invertir en una buena
+			nomenclatura y documentación es una práctica esencial para cualquier
+			equipo de desarrollo que desee producir software de calidad.</p>
+<h3 id="52-minimizar-el-estado-mutable">5.2. Minimizar el Estado
+			Mutable</h3>
+<p>Minimizar el estado mutable es una de las mejores prácticas en el
+			desarrollo de software moderno. Trabajar con datos inmutables tiene
+			múltiples ventajas, como mejorar la predictibilidad del código,
+			facilitar la depuración, y reducir los errores que provienen de
+			modificaciones inesperadas del estado. Al reducir el estado mutable,
+			hacemos que nuestro código sea más robusto y fácil de entender.</p>
+<p>El estado mutable se refiere a cualquier dato o variable que puede
+			cambiar después de haber sido inicializado. En su lugar, se recomienda
+			trabajar con datos inmutables, que no pueden ser alterados una vez
+			definidos. Esta práctica ayuda a evitar efectos secundarios indeseados y
+			garantiza un comportamiento más predecible del software.</p>
+<h4 id="ventajas-de-minimizar-el-estado-mutable">Ventajas de Minimizar
+			el Estado Mutable</h4>
+<ul>
+<li><strong>Simplicidad</strong>: Los objetos inmutables son más simples
+			de entender porque sabemos que una vez creados, no cambiarán. Esto
+			facilita la lectura y comprensión del código.</li>
+<li><strong>Evitar Efectos Secundarios</strong>: Al trabajar con objetos
+			inmutables, se reduce la posibilidad de que alguna función o parte del
+			código modifique datos compartidos, evitando efectos secundarios que
+			podrían introducir errores.</li>
+<li><strong>Facilidad para Concurrencia</strong>: En entornos
+			concurrentes, el uso de datos inmutables simplifica la gestión de hilos
+			y evita problemas comunes como las condiciones de carrera.</li>
+</ul>
+<h4 id="ejemplos-prácticos">Ejemplos Prácticos</h4>
+<ol type="1">
+<li><p><strong>Trabajar con Arrays Inmutables</strong> En lugar de
+			modificar un array existente, es mejor crear un nuevo array con los
+			elementos actualizados. Veamos un ejemplo en JavaScript:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode javascript"><code class="sourceCode javascript">// Estado mutable: modificar directamente el array
+let numeros = [1, 2, 3, 4];
+numeros.push(5); // Ahora numeros es [1, 2, 3, 4, 5]
+
+// Enfoque inmutable: crear un nuevo array
+let nuevosNumeros = [...numeros, 5]; // nuevosNumeros es [1, 2, 3, 4, 5]</code></pre></div>
+<p>En este caso, en lugar de modificar directamente el array
+			<code>numeros</code>, se utiliza la sintaxis de propagación
+			(<code>...</code>) para crear un nuevo array con el elemento
+			adicional.</p></li>
+<li><p><strong>Inmutabilidad en Clases Java</strong> En Java, se puede
+			crear clases inmutables definiendo todos los campos como
+			<code>final</code> y evitando proporcionar setters. En su lugar, se
+			pueden usar constructores para establecer los valores iniciales:</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode java"><code class="sourceCode java">public final class Persona {
+    private final String nombre;
+    private final int edad;
+
+    public Persona(String nombre, int edad) {
+        this.nombre = nombre;
+        this.edad = edad;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+}</code></pre></div>
+<p>En este ejemplo, la clase <code>Persona</code> es inmutable porque
+			una vez que se crea una instancia, sus campos <code>nombre</code> y
+			<code>edad</code> no pueden cambiar. No existen setters, y todos los
+			campos son <code>final</code>.</p></li>
+<li><p><strong>Uso de <code>map</code> en lugar de Modificar
+			Directamente</strong> En lugar de modificar elementos de una colección
+			directamente, se puede usar funciones como <code>map</code> para crear
+			una nueva colección basada en la original:</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode javascript"><code class="sourceCode javascript">// Estado mutable: modificar los elementos directamente
+let valores = [1, 2, 3, 4];
+for (let i = 0; i &lt; valores.length; i++) {
+    valores[i] = valores[i] * 2; // Multiplica cada elemento por 2
+}
+
+// Enfoque inmutable: usar map para crear una nueva colección
+let nuevosValores = valores.map(valor =&gt; valor * 2); // nuevosValores es [2, 4, 6, 8]</code></pre></div>
+<p>El método <code>map</code> devuelve un nuevo array con los elementos
+			transformados, dejando el array original sin cambios.</p></li>
+<li><p><strong>Inmutabilidad en Programación Funcional</strong> En
+			lenguajes funcionales como Haskell o incluso en JavaScript aplicando
+			paradigmas funcionales, la inmutabilidad es una piedra angular.
+			Consideremos un ejemplo simple en JavaScript con objetos:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode javascript"><code class="sourceCode javascript">// Estado mutable: modificar un objeto directamente
+let persona = { nombre: "Juan", edad: 30 };
+persona.edad = 31; // Ahora la edad de persona es 31
+
+// Enfoque inmutable: crear un nuevo objeto con los cambios
+let nuevaPersona = { ...persona, edad: 31 }; // nuevaPersona es { nombre: "Juan", edad: 31 }</code></pre></div>
+<p>En este ejemplo, se utiliza el operador de propagación para crear un
+			nuevo objeto <code>nuevaPersona</code>, basado en <code>persona</code>
+			pero con un valor actualizado para <code>edad</code>.</p></li>
+<li><p><strong>Listas Inmutables en Java</strong> En Java, trabajar con
+			listas inmutables es posible utilizando métodos proporcionados por la
+			clase <code>Collections</code> o las nuevas APIs disponibles en Java 9 y
+			posteriores:</p>
+<ul>
+<li><p><strong>Listas Inmutables en Java 8</strong>:</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode java"><code class="sourceCode java">import java.util.Collections;
+import java.util.List;
+import java.util.ArrayList;
+
+public class EjemploListasInmutablesJava8 {
+    public static void main(String[] args) {
+        List&lt;String&gt; listaMutable = new ArrayList&lt;&gt;();
+        listaMutable.add("a");
+        listaMutable.add("b");
+        listaMutable.add("c");
+        
+        List&lt;String&gt; listaInmutable = Collections.unmodifiableList(listaMutable);
+
+        // Intentar modificar la lista lanzará una excepción
+        // listaInmutable.add("d"); // UnsupportedOperationException
+    }
+}</code></pre></div>
+<p>En este ejemplo para Java 8, se usa
+			<code>Collections.unmodifiableList()</code> para envolver una lista
+			mutable y hacerla inmutable. Este enfoque es común en versiones
+			anteriores a Java 9 donde no se disponía de métodos más sencillos para
+			crear colecciones inmutables.</p></li>
+<li><p><strong>Listas Inmutables en Java 9 y posteriores</strong>:</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode java"><code class="sourceCode java">import java.util.List;
+
+public class EjemploListasInmutablesJava9 {
+    public static void main(String[] args) {
+        List&lt;String&gt; listaInmutable = List.of("a", "b", "c");
+
+        // Al ser creado con List.of(), la lista es inmutable
+        // listaInmutable.add("d"); // UnsupportedOperationException
+    }
+}</code></pre></div>
+<p>En Java 9 y versiones posteriores, <code>List.of()</code> permite
+			crear listas inmutables de manera más directa y sencilla.</p></li>
+</ul>
+<p>Aparte de las listas, Java también permite trabajar con conjuntos
+			(<code>Set</code>) y mapas (<code>Map</code>) inmutables, diferenciando
+			la forma de hacerlo según la versión de Java utilizada:</p>
+<ul>
+<li><p><strong>Conjuntos Inmutables en Java 8</strong>:</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode java"><code class="sourceCode java">import java.util.Collections;
+import java.util.Set;
+import java.util.HashSet;
+
+public class EjemploConjuntosInmutablesJava8 {
+    public static void main(String[] args) {
+        Set&lt;String&gt; conjuntoMutable = new HashSet&lt;&gt;();
+        conjuntoMutable.add("a");
+        conjuntoMutable.add("b");
+        conjuntoMutable.add("c");
+
+        Set&lt;String&gt; conjuntoInmutable = Collections.unmodifiableSet(conjuntoMutable);
+
+        // Intentar modificar el conjunto lanzará una excepción
+        // conjuntoInmutable.add("d"); // UnsupportedOperationException
+    }
+}</code></pre></div>
+<p>En Java 8, se usa <code>Collections.unmodifiableSet()</code> para
+			crear un conjunto inmutable a partir de uno mutable.</p></li>
+<li><p><strong>Conjuntos Inmutables en Java 9 y
+			posteriores</strong>:</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode java">
+			<code class="sourceCode java">
+import java.util.Set;
+
+public class EjemploConjuntosInmutablesJava9 {
+    public static void main(String[] args) {
+        Set&lt;Integer&gt; conjuntoInmutable = Set.of(1, 2, 3, 4);
+
+        // Al ser creado con Set.of(), el conjunto es inmutable
+        // conjuntoInmutable.add(5); // UnsupportedOperationException
+    }
+}
+</code></pre></div>
+<p>Con <code>Set.of()</code>, se crea un conjunto inmutable en Java 9 y
+			superiores de manera más sencilla.</p></li>
+<li><p><strong>Mapas Inmutables en Java 8</strong>:</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode java"><code class="sourceCode java">import java.util.Collections;
+import java.util.Map;
+import java.util.HashMap;
+
+public class EjemploMapasInmutablesJava8 {
+    public static void main(String[] args) {
+        Map&lt;String, Integer&gt; mapaMutable = new HashMap&lt;&gt;();
+        mapaMutable.put("clave1", 100);
+        mapaMutable.put("clave2", 200);
+
+        Map&lt;String, Integer&gt; mapaInmutable = Collections.unmodifiableMap(mapaMutable);
+
+        // Intentar modificar el mapa lanzará una excepción
+        // mapaInmutable.put("clave3", 300); // UnsupportedOperationException
+    }
+}</code></pre></div>
+<p>En Java 8, se utiliza <code>Collections.unmodifiableMap()</code> para
+			crear un mapa inmutable.</p></li>
+</ul></li>
+</ol>
+<ul>
+<li><strong>Mapas Inmutables en Java 9 y posteriores</strong>:
+			<div class="sourceCode" id="cb43"><pre class="sourceCode java"><code class="sourceCode java">import java.util.Map;
+
+public class EjemploMapasInmutablesJava9 {
+    public static void main(String[] args) {
+        Map&lt;String, Integer&gt; mapaInmutable = Map.of("clave1", 100, "clave2", 200);
+
+        // Al ser creado con Map.of(), el mapa es inmutable
+        // mapaInmutable.put("clave3", 300); // UnsupportedOperationException
+    }
+}</code></pre></div>
+			De manera similar a las listas y conjuntos, <code>Map.of()</code>
+			permite crear mapas inmutables de forma más directa en Java 9 y
+			versiones posteriores.</li>
+</ul>
+<h4 id="estrategias-para-minimizar-el-estado-mutable">Estrategias para
+			Minimizar el Estado Mutable</h4>
+<ol type="1">
+<li><p><strong>Uso de Constantes</strong>: Declarar variables con
+			<code>const</code> (en JavaScript) o con el modificador
+			<code>final</code> (en Java) siempre que sea posible para garantizar que
+			no cambien su valor después de ser inicializadas.</p>
+<ul>
+<li><strong>Ejemplo</strong>: <code>const tasaInteres = 0.05;</code>
+			asegura que <code>tasaInteres</code> no será reasignada.</li>
+</ul></li>
+<li><p><strong>Bibliotecas de Inmutabilidad</strong>: Utilizar
+			bibliotecas como <code>Immutable.js</code> en JavaScript que ofrecen
+			estructuras de datos inmutables para garantizar que los datos no se
+			modifiquen directamente.</p></li>
+<li><p><strong>Diseño Orientado a Objetos</strong>: Diseñar objetos
+			inmutables, asegurando que sus campos no puedan ser cambiados después de
+			la construcción. Esto se puede lograr haciendo que los atributos sean
+			privados y solo proporcionando getters.</p></li>
+</ol>
+<h4 id="conclusión-14">Conclusión</h4>
+<p>Minimizar el estado mutable conduce a un código más limpio, fácil de
+			entender y con menos errores. La inmutabilidad no solo facilita el
+			razonamiento sobre el comportamiento del programa, sino que también lo
+			hace más seguro en entornos concurrentes. Adoptar esta práctica puede
+			requerir un cambio de mentalidad, pero los beneficios en términos de
+			estabilidad y mantenibilidad del software son significativos.</p>
+<p>El uso de estructuras inmutables ayuda a evitar errores comunes
+			relacionados con el cambio inesperado de datos, lo cual es
+			particularmente útil en aplicaciones concurrentes.</p>
+<h3 id="53-principio-del-mínimo-asombro-principle-of-least-astonishment">5.3.
+			Principio del Mínimo Asombro (Principle of Least Astonishment)</h3>
+<p>El código debe comportarse de la forma que otro programador,
+			razonablemente informado, esperaría que lo hiciera. Es decir, el diseño
+			debe evitar sorpresas y debe ser lo más intuitivo posible para minimizar
+			los errores de uso.</p>
+<h4 id="explicación-detallada-14">Explicación Detallada</h4>
+<p>El <strong>Principio del Mínimo Asombro</strong> establece que el
+			comportamiento del código no debe sorprender al lector. Cuando un
+			desarrollador lee un método llamado <code>calcularPromedio()</code>,
+			debería esperar que devuelva un valor único que represente el promedio
+			calculado, no una lista de todos los promedios intermedios o algo
+			similar. Este principio se relaciona también con la claridad del código
+			y la facilidad de uso de las interfaces.</p>
+<p>Para seguir este principio, asegúrate de que las funciones hagan
+			exactamente lo que sus nombres sugieren, y evita comportamientos ocultos
+			o efectos secundarios. Si un método tiene un nombre claro pero un
+			comportamiento complejo o inesperado, podría causar confusión, lo que
+			resultaría en errores al usarlo.</p>
+<h4 id="buenas-prácticas-para-aplicar-el-principio">Buenas Prácticas
+			para Aplicar el Principio</h4>
+<ol type="1">
+<li><p><strong>Nombres Claros y Específicos</strong>: Utiliza nombres
+			que reflejen con exactitud lo que hace la función. Si un método se llama
+			<code>calcularPromedio()</code>, el nombre sugiere que devolverá un solo
+			valor que es el promedio, no un conjunto de datos o alguna otra
+			información.</p>
+<ul>
+<li><strong>Ejemplo Correcto</strong>:
+			<code>calcularPromedio(List&lt;Integer&gt; numeros)</code> que devuelve
+			un <code>double</code> representando el promedio.</li>
+<li><strong>Ejemplo Incorrecto</strong>: <code>calcularPromedio()</code>
+			que devuelve una lista de promedios parciales, ya que el nombre no
+			coincide con lo que realmente hace el método.</li>
+</ul></li>
+<li><p><strong>Evitar Efectos Secundarios Ocultos</strong>: Asegúrate de
+			que las funciones no tengan efectos secundarios que puedan sorprender al
+			usuario del código. Por ejemplo, si un método llamado
+			<code>obtenerConfiguracion()</code> modifica el estado interno del
+			objeto, esto podría resultar en un comportamiento inesperado.</p>
+<ul>
+<li><strong>Ejemplo Correcto</strong>: Un método
+			<code>obtenerConfiguracion()</code> que simplemente devuelve la
+			configuración actual sin modificar nada.</li>
+<li><strong>Ejemplo Incorrecto</strong>: Un método
+			<code>obtenerConfiguracion()</code> que al mismo tiempo guarde cambios
+			internos o altere el estado del sistema.</li>
+</ul></li>
+<li><p><strong>Mantener la Simplicidad en las Interfaces</strong>: Las
+			interfaces y los métodos deben ser fáciles de usar sin necesitar un
+			conocimiento profundo del sistema para evitar sorpresas. Un
+			desarrollador no debería tener que estudiar detalladamente cada método
+			para entender cómo utilizarlo sin generar errores.</p></li>
+<li><p><strong>Coherencia</strong>: Mantén coherencia en los nombres y
+			comportamientos de las funciones a lo largo del proyecto. Si todas las
+			funciones de una clase comienzan con el verbo "obtener" para recuperar
+			valores, asegúrate de que ninguna de ellas esté alterando el estado o
+			realizando alguna acción que no sea coherente con el resto.</p></li>
+</ol>
+<h4 id="ejemplo-práctico">Ejemplo Práctico</h4>
+<p>Considera un método llamado <code>calcularPromedio()</code>. Si este
+			método retorna un valor distinto al esperado, como una lista de
+			promedios, en lugar de un número, esto generaría sorpresa e incluso
+			errores por parte de quien lo utilice.</p>
+<p><strong>Ejemplo Incorrecto</strong>:</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode java"><code class="sourceCode java">// Ejemplo incorrecto
+public List&lt;Double&gt; calcularPromedio(List&lt;Integer&gt; numeros) {
+    // En lugar de devolver un promedio único, devuelve promedios parciales
+    List&lt;Double&gt; promediosParciales = new ArrayList&lt;&gt;();
+    // ... código para calcular promedios parciales
+    return promediosParciales;
+}</code></pre></div>
+<p>En este ejemplo, el nombre del método <code>calcularPromedio</code>
+			sugiere que debe devolver un único valor, pero devuelve una lista de
+			promedios parciales, lo cual no es lo esperado y puede causar
+			confusión.</p>
+<p><strong>Ejemplo Correcto</strong>:</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode java"><code class="sourceCode java">// Ejemplo correcto
+public double calcularPromedio(List&lt;Integer&gt; numeros) {
+    double suma = 0;
+    for (int numero : numeros) {
+        suma += numero;
+    }
+    return suma / numeros.size();
+}</code></pre></div>
+<p>En el ejemplo correcto, el método devuelve un único promedio,
+			cumpliendo con las expectativas generadas por su nombre.</p>
+<p>Otro ejemplo podría ser un método <code>actualizarUsuario()</code>.
+			Si este método actualiza internamente un usuario pero también envía una
+			notificación, esto podría sorprender al desarrollador que lo usa, ya que
+			el envío de la notificación no es evidente a partir del nombre del
+			método. Un mejor enfoque sería tener dos métodos separados:
+			<code>actualizarUsuario()</code> y
+			<code>notificarActualizacionUsuario()</code>.</p>
+<h4 id="conclusión-15">Conclusión</h4>
+<p>El <strong>Principio del Mínimo Asombro</strong> es esencial para
+			mejorar la usabilidad y la claridad del código. Diseñar funciones y
+			clases con un comportamiento intuitivo reduce la curva de aprendizaje y
+			minimiza los errores, ya que el código hace exactamente lo que se espera
+			de él sin sorpresas ni efectos inesperados. Siguiendo este principio, el
+			desarrollo se vuelve más eficiente, ya que los desarrolladores pueden
+			concentrarse en implementar nuevas funcionalidades en lugar de intentar
+			comprender cómo funciona el código existente.</p>
+<h2 id="resumen-y-conclusiones-finales">Resumen y Conclusiones
+			Finales</h2>
+<p>Aplicar estos principios no solo te ayudará a crear código más limpio
+			y mantenible, sino también a trabajar de forma más eficiente en equipo,
+			ya que el código se vuelve más legible y predecible.</p>
+<p>En este curso hemos explorado principios clave para mejorar la
+			calidad del código, centrándonos en conceptos como los principios SOLID,
+			patrones de diseño, prácticas de refactorización y la importancia de
+			escribir código que sea fácil de entender y mantener. Cada uno de estos
+			principios contribuye a que el desarrollo de software sea más eficiente,
+			flexible y menos propenso a errores.</p>
+<p>Es fundamental destacar que los principios vistos se pueden aplicar a
+			cualquier lenguaje de programación. Tanto si trabajas con aplicaciones
+			JavaScript, PLSQL, Python, Java, o cualquier otro lenguaje, los
+			conceptos de modularidad, separación de responsabilidades, y el diseño
+			orientado a la claridad y mantenibilidad son universales. Adaptar estos
+			principios a las características y peculiaridades de cada lenguaje
+			permitirá mejorar la calidad del software sin importar la
+			plataforma.</p>
+<p>La clave para aplicar estos principios es comprender que la buena
+			programación no depende del lenguaje, sino de las prácticas y decisiones
+			que tomamos a la hora de escribir el código. Practicar el diseño
+			orientado a interfaces, utilizar patrones que resuelvan problemas
+			comunes y aplicar las mejores prácticas de refactorización asegura que
+			el código será más comprensible y adaptable en el futuro.</p>
+<p>Como conclusión, invita a los desarrolladores a profundizar en estos
+			principios y a seguir experimentando y aprendiendo cómo aplicarlos en
+			sus propios proyectos. No importa el lenguaje o la tecnología, una buena
+			base de programación siempre se adapta y evoluciona, llevando a mejores
+			resultados y software más robusto.</p>
+<h3 id="próximos-pasos">Próximos Pasos</h3>
+<p>Para seguir profundizando en estos temas, se recomienda investigar
+			sobre:</p>
+<ul>
+<li>Aplicación de principios SOLID en lenguajes funcionales.</li>
+<li>Refactorización y técnicas avanzadas para proyectos de gran escala.
+			<strong>Refactoring</strong> de Martin Fowler, que incluye ejemplos
+			sobre cómo mejorar la nomenclatura y la estructura del código para
+			hacerlo más comprensible.</li>
+<li>Patrones de diseño específicos para desarrollo frontend (como MVC,
+			MVVM).</li>
+<li>Patrones de Diseño de GoF, Arquitectura Hexagonal, y Domain-Driven
+			Design (DDD).</li>
+<li><strong>Clean Code</strong> de Robert C. Martin, que aborda en
+			detalle el tema de nombres significativos y buenas prácticas de
+			código.</li>
+</ul>
+<p>La práctica constante y la revisión de código son esenciales para
+			convertir estos principios en parte del día a día de cualquier
+			desarrollador.</p>
+</section>
+</div>
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const abrirMenuBtn = document.getElementById("abrir-menu");
+            const menuLateral = document.getElementById("menu-lateral");
+            const menuLista = document.getElementById("menu-lista");
+
+            // Mostrar/ocultar el menú lateral con un solo evento
+            abrirMenuBtn.addEventListener("click", function() {
+                if (menuLateral.classList.contains("oculto")) {
+                    menuLateral.classList.remove("oculto");
+                    menuLateral.classList.add("visible");
+                } else {
+                    menuLateral.classList.remove("visible");
+                    menuLateral.classList.add("oculto");
+                }
+            });
+
+            // Generar enlaces de navegación a partir del contenido
+            const encabezados = document.querySelectorAll("h2, h3");
+            let currentH2ListItem = null;
+            encabezados.forEach(function(encabezado) {
+                const enlace = document.createElement("a");
+                enlace.href = `#${encabezado.id}`;
+                enlace.textContent = encabezado.textContent;
+                const listItem = document.createElement("li");
+                listItem.appendChild(enlace);
+
+                if (encabezado.tagName === 'H2') {
+                    currentH2ListItem = listItem;
+                    menuLista.appendChild(listItem);
+                } else if (encabezado.tagName === 'H3' && currentH2ListItem) {
+                    let subList = currentH2ListItem.querySelector('ul');
+                    if (!subList) {
+                        subList = document.createElement('ul');
+                        currentH2ListItem.appendChild(subList);
+                    }
+                    subList.appendChild(listItem);
+                }
+				
+				 // Cerrar el menú lateral al hacer clic en un enlace
+                enlace.addEventListener("click", function() {
+                    menuLateral.classList.remove("visible");
+                    menuLateral.classList.add("oculto");
+                });
+            });
+			
+        });
+    </script>
+</body><script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeToggle = document.getElementById('theme-toggle');
+            const body = document.body;
+
+            // Verificar si el tema está guardado en localStorage
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                body.classList.add(savedTheme);
+                if (savedTheme === 'dark-theme') {
+                    themeToggle.checked = true;
+                }
+				cambiarTema(savedTheme === 'dark-theme' ? 'oscuro' : 'claro');
+            } else {
+				// Si no hay tema guardado, detectar la preferencia del sistema
+				const prefiereOscuro = window.matchMedia('(prefers-color-scheme: dark)').matches;
+				cambiarTema(prefiereOscuro ? 'oscuro' : 'claro');
+			  }
+			const temaClaro = document.getElementById('highlight-theme-light');
+			const temaOscuro = document.getElementById('highlight-theme-dark');
+			
+			// Actualizar el estado del interruptor
+			themeToggle.checked = document.body.classList.contains('dark-theme');
+            
+			themeToggle.addEventListener('change', function() {
+				if (themeToggle.checked) {
+					cambiarTema('oscuro');
+				} else {
+					cambiarTema('claro');
+				}
+			});
+        });
+		
+		function cambiarTema(modo) {
+		  const temaClaro = document.getElementById('highlight-theme-light');
+		  const temaOscuro = document.getElementById('highlight-theme-dark');
+		  const body = document.body;
+
+		  if (modo === 'oscuro') {
+			temaClaro.disabled = true;
+			temaOscuro.disabled = false;
+			body.classList.add('dark-theme');
+			body.classList.remove('light-theme');
+			localStorage.setItem('theme', 'dark-theme');
+		  } else {
+			temaClaro.disabled = false;
+			temaOscuro.disabled = true;
+			body.classList.add('light-theme');
+			body.classList.remove('dark-theme');
+			localStorage.setItem('theme', 'light-theme');
+		  }
+		}
+
+    </script>
+</html>
